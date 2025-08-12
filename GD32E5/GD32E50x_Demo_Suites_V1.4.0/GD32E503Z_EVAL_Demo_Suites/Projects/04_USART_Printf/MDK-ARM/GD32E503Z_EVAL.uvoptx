@@ -119,6 +119,11 @@
       <TargetDriverDllRegistry>
         <SetRegEntry>
           <Number>0</Number>
+          <Key>JL2CM3</Key>
+          <Name>-U59522939 -O78 -S4 -ZTIFSpeedSel2000 -A0 -C0 -JU1 -JI127.0.0.1 -JP0 -RST0 -N00("ARM CoreSight SW-DP") -D00(0BE12477) -L00(4) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -TB1 -TFE0 -FO7 -FD20000000 -FC800 -FN0</Name>
+        </SetRegEntry>
+        <SetRegEntry>
+          <Number>0</Number>
           <Key>UL2V8M</Key>
           <Name>-UAny -O206 -S0 -C0 -P00 -N00("ARM CoreSight SW-DP") -D00(0BF11477) -L00(0) -TO0 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO15  -FN1 -FC1000 -FD20000000 -FF0GD32E50x_512 -FL080000 -FS08000000 -FP0($$Device:GD32E503ZE$Flash\GD32E50x_512.FLM)</Name>
         </SetRegEntry>
@@ -206,7 +211,7 @@
 
   <Group>
     <GroupName>Application</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

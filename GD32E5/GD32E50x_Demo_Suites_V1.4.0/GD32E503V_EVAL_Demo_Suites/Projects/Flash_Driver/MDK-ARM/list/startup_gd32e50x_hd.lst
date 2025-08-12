@@ -668,12 +668,12 @@ ARM Macro Assembler    Page 11
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M33 --fpu=FPv5-S
 P --depend=.\output\startup_gd32e50x_hd.d -o.\output\startup_gd32e50x_hd.o -I.\
-RTE\_GD32E503V_EVAL -ID:\keil_pack\mdk_v5\pack\ARM\CMSIS\5.5.1\CMSIS\Core\Inclu
-de -ID:\keil_pack\mdk_v5\pack\GigaDevice\GD32E50x_DFP\1.5.0\Device\Include --pr
-edefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 527" --predefin
-e="_RTE_ SETA 1" --predefine="GD32E50x_HD SETA 1" --list=.\list\startup_gd32e50
-x_hd.lst ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\GD\GD32E50x\Source\ARM\sta
-rtup_gd32e50x_hd.s
+RTE\_GD32E503V_EVAL -ID:\keil_pack\KEIL5_mdk_C51\ARM\CMSIS\5.5.1\CMSIS\Core\Inc
+lude -ID:\keil_pack\KEIL5_mdk_C51\GigaDevice\GD32E50x_DFP\1.5.0\Device\Include 
+--predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 527" --pred
+efine="_RTE_ SETA 1" --predefine="GD32E50x_HD SETA 1" --list=.\list\startup_gd3
+2e50x_hd.lst ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\GD\GD32E50x\Source\ARM
+\startup_gd32e50x_hd.s
 
 
 

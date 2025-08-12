@@ -1,13 +1,13 @@
 ./output/gd25qxx.o: ..\Soft_Drive\gd25qxx.c ..\Soft_Drive\gd25qxx.h \
   ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\GD\GD32E50x\Include\gd32e50x.h \
   ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\core_cm33.h \
-  D:\keil_pack\mdk_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  D:\keil_pack\KEIL5_mdk_C51\ARM\ARMCLANG\Bin\..\include\stdint.h \
   ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\cmsis_version.h \
   ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\cmsis_compiler.h \
-  D:\keil_pack\mdk_v5\pack\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armclang.h \
-  D:\keil_pack\mdk_v5\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
-  D:\keil_pack\mdk_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
-  D:\keil_pack\mdk_v5\pack\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv8.h \
+  D:\keil_pack\KEIL5_mdk_C51\ARM\CMSIS\5.5.1\CMSIS\Core\Include\cmsis_armclang.h \
+  D:\keil_pack\KEIL5_mdk_C51\ARM\ARMCLANG\Bin\..\include\arm_compat.h \
+  D:\keil_pack\KEIL5_mdk_C51\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
+  D:\keil_pack\KEIL5_mdk_C51\ARM\CMSIS\5.5.1\CMSIS\Core\Include\mpu_armv8.h \
   ..\..\..\..\GD32E50x_Firmware_Library\CMSIS\GD\GD32E50x\Include\system_gd32e50x.h \
   ..\.\gd32e50x_libopt.h \
   ..\..\..\..\GD32E50x_Firmware_Library\GD32E50x_standard_peripheral\Include\gd32e50x_adc.h \
@@ -35,4 +35,4 @@
   ..\..\..\..\GD32E50x_Firmware_Library\GD32E50x_standard_peripheral\Include\gd32e50x_wwdgt.h \
   ..\..\..\..\GD32E50x_Firmware_Library\GD32E50x_standard_peripheral\Include\gd32e50x_sqpi.h \
   ..\..\..\..\GD32E50x_Firmware_Library\GD32E50x_standard_peripheral\Include\gd32e50x_sdio.h \
-  D:\keil_pack\mdk_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  D:\keil_pack\KEIL5_mdk_C51\ARM\ARMCLANG\Bin\..\include\string.h

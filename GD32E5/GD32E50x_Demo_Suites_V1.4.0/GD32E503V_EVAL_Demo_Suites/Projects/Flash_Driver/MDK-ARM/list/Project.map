@@ -4,40 +4,67 @@ Component: ARM Compiler 6.12 Tool: armlink [5d624300]
 
 Section Cross References
 
+    main.o(.text.uprintf) refers to main.o(.bss.uprintf.tmp) for uprintf.tmp
+    main.o(.text.uprintf) refers to printfa.o(i.__0vsnprintf) for vsnprintf
+    main.o(.text.uprintf) refers to main.o(.text.ring_write) for ring_write
+    main.o(.text.uprintf) refers to main.o(.text.uart_start_tx_dma) for uart_start_tx_dma
+    main.o(.ARM.exidx.text.uprintf) refers to main.o(.text.uprintf) for [Anonymous Symbol]
+    main.o(.text.ring_write) refers to main.o(.bss.tx_ring) for tx_ring
+    main.o(.ARM.exidx.text.ring_write) refers to main.o(.text.ring_write) for [Anonymous Symbol]
+    main.o(.text.uart_start_tx_dma) refers to gd32e50x_dma.o(.text.dma_flag_get) for dma_flag_get
+    main.o(.text.uart_start_tx_dma) refers to main.o(.bss.tx_ring) for tx_ring
+    main.o(.text.uart_start_tx_dma) refers to gd32e50x_dma.o(.text.dma_channel_disable) for dma_channel_disable
+    main.o(.text.uart_start_tx_dma) refers to gd32e50x_dma.o(.text.dma_memory_address_config) for dma_memory_address_config
+    main.o(.text.uart_start_tx_dma) refers to gd32e50x_dma.o(.text.dma_transfer_number_config) for dma_transfer_number_config
+    main.o(.text.uart_start_tx_dma) refers to gd32e50x_dma.o(.text.dma_channel_enable) for dma_channel_enable
+    main.o(.ARM.exidx.text.uart_start_tx_dma) refers to main.o(.text.uart_start_tx_dma) for [Anonymous Symbol]
+    main.o(.text.uart_dma_init) refers to gd32e50x_rcu.o(.text.rcu_periph_clock_enable) for rcu_periph_clock_enable
+    main.o(.text.uart_dma_init) refers to gd32e50x_gpio.o(.text.gpio_init) for gpio_init
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_deinit) for usart_deinit
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_baudrate_set) for usart_baudrate_set
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_word_length_set) for usart_word_length_set
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_stop_bit_set) for usart_stop_bit_set
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_parity_config) for usart_parity_config
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_hardware_flow_rts_config) for usart_hardware_flow_rts_config
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_hardware_flow_cts_config) for usart_hardware_flow_cts_config
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_receive_config) for usart_receive_config
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_transmit_config) for usart_transmit_config
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_enable) for usart_enable
+    main.o(.text.uart_dma_init) refers to gd32e50x_dma.o(.text.dma_deinit) for dma_deinit
+    main.o(.text.uart_dma_init) refers to main.o(.bss.tx_ring) for tx_ring
+    main.o(.text.uart_dma_init) refers to gd32e50x_dma.o(.text.dma_init) for dma_init
+    main.o(.text.uart_dma_init) refers to gd32e50x_dma.o(.text.dma_interrupt_enable) for dma_interrupt_enable
+    main.o(.text.uart_dma_init) refers to gd32e50x_misc.o(.text.nvic_irq_enable) for nvic_irq_enable
+    main.o(.text.uart_dma_init) refers to main.o(.bss.rx_dma_buf) for rx_dma_buf
+    main.o(.text.uart_dma_init) refers to gd32e50x_dma.o(.text.dma_channel_enable) for dma_channel_enable
+    main.o(.text.uart_dma_init) refers to gd32e50x_usart.o(.text.usart_interrupt_enable) for usart_interrupt_enable
+    main.o(.ARM.exidx.text.uart_dma_init) refers to main.o(.text.uart_dma_init) for [Anonymous Symbol]
     main.o(.text.main) refers to systick.o(.text.systick_config) for systick_config
-    main.o(.text.main) refers to main.o(.text.test_status_led_init) for test_status_led_init
-    main.o(.text.main) refers to gd32e503v_eval.o(.text.gd_eval_com_init) for gd_eval_com_init
-    main.o(.text.main) refers to gd25qxx.o(.text.spi_flash_init) for spi_flash_init
+    main.o(.text.main) refers to main.o(.text.uart_dma_init) for uart_dma_init
     main.o(.text.main) refers to main.o(.rodata.str1.1) for .L.str
-    main.o(.text.main) refers to printfa.o(i.__0printf) for printf
-    main.o(.text.main) refers to main.o(.text.get_chip_serial_num) for get_chip_serial_num
-    main.o(.text.main) refers to main.o(.bss.int_device_serial) for int_device_serial
-    main.o(.text.main) refers to gd25qxx.o(.text.spi_flash_read_id) for spi_flash_read_id
-    main.o(.text.main) refers to main.o(.bss.flash_id) for flash_id
-    main.o(.text.main) refers to main.o(.bss.i) for i
-    main.o(.text.main) refers to main.o(.bss.tx_buffer) for tx_buffer
-    main.o(.text.main) refers to gd25qxx.o(.text.spi_flash_sector_erase) for spi_flash_sector_erase
-    main.o(.text.main) refers to gd25qxx.o(.text.spi_flash_buffer_write) for spi_flash_buffer_write
-    main.o(.text.main) refers to systick.o(.text.delay_1ms) for delay_1ms
-    main.o(.text.main) refers to main.o(.bss.rx_buffer) for rx_buffer
-    main.o(.text.main) refers to gd25qxx.o(.text.spi_flash_buffer_read) for spi_flash_buffer_read
-    main.o(.text.main) refers to main.o(.text.memory_compare) for memory_compare
-    main.o(.text.main) refers to main.o(.bss.is_successful) for is_successful
-    main.o(.text.main) refers to gd32e503v_eval.o(.text.gd_eval_led_off) for gd_eval_led_off
-    main.o(.text.main) refers to main.o(.bss.count) for count
-    main.o(.text.main) refers to main.o(.text.turn_on_led) for turn_on_led
+    main.o(.text.main) refers to main.o(.text.uprintf) for uprintf
+    main.o(.text.main) refers to main.o(.bss.rx_frame_done) for rx_frame_done
+    main.o(.text.main) refers to main.o(.bss.rx_len) for rx_len
+    main.o(.text.main) refers to main.o(.bss.rx_user_buf) for rx_user_buf
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
-    main.o(.text.test_status_led_init) refers to gd32e503v_eval.o(.text.gd_eval_led_init) for gd_eval_led_init
-    main.o(.text.test_status_led_init) refers to gd32e503v_eval.o(.text.gd_eval_led_off) for gd_eval_led_off
-    main.o(.ARM.exidx.text.test_status_led_init) refers to main.o(.text.test_status_led_init) for [Anonymous Symbol]
-    main.o(.text.get_chip_serial_num) refers to main.o(.bss.int_device_serial) for int_device_serial
-    main.o(.ARM.exidx.text.get_chip_serial_num) refers to main.o(.text.get_chip_serial_num) for [Anonymous Symbol]
-    main.o(.ARM.exidx.text.memory_compare) refers to main.o(.text.memory_compare) for [Anonymous Symbol]
-    main.o(.text.turn_on_led) refers to gd32e503v_eval.o(.text.gd_eval_led_on) for gd_eval_led_on
-    main.o(.ARM.exidx.text.turn_on_led) refers to main.o(.text.turn_on_led) for [Anonymous Symbol]
-    main.o(.text.fputc) refers to gd32e50x_usart.o(.text.usart_data_transmit) for usart_data_transmit
-    main.o(.text.fputc) refers to gd32e50x_usart.o(.text.usart_flag_get) for usart_flag_get
-    main.o(.ARM.exidx.text.fputc) refers to main.o(.text.fputc) for [Anonymous Symbol]
+    main.o(.text.DMA0_Channel3_IRQHandler) refers to gd32e50x_dma.o(.text.dma_interrupt_flag_get) for dma_interrupt_flag_get
+    main.o(.text.DMA0_Channel3_IRQHandler) refers to gd32e50x_dma.o(.text.dma_interrupt_flag_clear) for dma_interrupt_flag_clear
+    main.o(.text.DMA0_Channel3_IRQHandler) refers to gd32e50x_dma.o(.text.dma_transfer_number_get) for dma_transfer_number_get
+    main.o(.text.DMA0_Channel3_IRQHandler) refers to main.o(.bss.tx_ring) for tx_ring
+    main.o(.ARM.exidx.text.DMA0_Channel3_IRQHandler) refers to main.o(.text.DMA0_Channel3_IRQHandler) for [Anonymous Symbol]
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_usart.o(.text.usart_interrupt_flag_get) for usart_interrupt_flag_get
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_usart.o(.text.usart_interrupt_flag_clear) for usart_interrupt_flag_clear
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_usart.o(.text.usart_data_receive) for usart_data_receive
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_dma.o(.text.dma_channel_disable) for dma_channel_disable
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_dma.o(.text.dma_transfer_number_get) for dma_transfer_number_get
+    main.o(.text.USART0_IRQHandler) refers to main.o(.bss.rx_len) for rx_len
+    main.o(.text.USART0_IRQHandler) refers to main.o(.bss.rx_user_buf) for rx_user_buf
+    main.o(.text.USART0_IRQHandler) refers to main.o(.bss.rx_dma_buf) for rx_dma_buf
+    main.o(.text.USART0_IRQHandler) refers to memcpya.o(.text) for __aeabi_memcpy
+    main.o(.text.USART0_IRQHandler) refers to main.o(.bss.rx_frame_done) for rx_frame_done
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_dma.o(.text.dma_transfer_number_config) for dma_transfer_number_config
+    main.o(.text.USART0_IRQHandler) refers to gd32e50x_dma.o(.text.dma_channel_enable) for dma_channel_enable
+    main.o(.ARM.exidx.text.USART0_IRQHandler) refers to main.o(.text.USART0_IRQHandler) for [Anonymous Symbol]
     gd32e50x_it.o(.ARM.exidx.text.NMI_Handler) refers to gd32e50x_it.o(.text.NMI_Handler) for [Anonymous Symbol]
     gd32e50x_it.o(.ARM.exidx.text.HardFault_Handler) refers to gd32e50x_it.o(.text.HardFault_Handler) for [Anonymous Symbol]
     gd32e50x_it.o(.ARM.exidx.text.MemManage_Handler) refers to gd32e50x_it.o(.text.MemManage_Handler) for [Anonymous Symbol]
@@ -1089,6 +1116,8 @@ Section Cross References
     startup_gd32e50x_hd.o(RESET) refers to gd32e50x_it.o(.text.DebugMon_Handler) for DebugMon_Handler
     startup_gd32e50x_hd.o(RESET) refers to gd32e50x_it.o(.text.PendSV_Handler) for PendSV_Handler
     startup_gd32e50x_hd.o(RESET) refers to gd32e50x_it.o(.text.SysTick_Handler) for SysTick_Handler
+    startup_gd32e50x_hd.o(RESET) refers to main.o(.text.DMA0_Channel3_IRQHandler) for DMA0_Channel3_IRQHandler
+    startup_gd32e50x_hd.o(RESET) refers to main.o(.text.USART0_IRQHandler) for USART0_IRQHandler
     startup_gd32e50x_hd.o(.text) refers to system_gd32e50x.o(.text.SystemInit) for SystemInit
     startup_gd32e50x_hd.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000D) for __rt_final_cpp
@@ -1100,10 +1129,10 @@ Section Cross References
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry2.o(.ARM.Collect$$$$00000001) for _main_stk
     printfa.o(i.__0fprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0fprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0fprintf) refers to main.o(.text.fputc) for fputc
+    printfa.o(i.__0fprintf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0printf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0printf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0printf) refers to main.o(.text.fputc) for fputc
+    printfa.o(i.__0printf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0printf) refers to stdout.o(.data) for __stdout
     printfa.o(i.__0snprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0snprintf) refers to printfa.o(i._printf_core) for _printf_core
@@ -1113,10 +1142,10 @@ Section Cross References
     printfa.o(i.__0sprintf) refers to printfa.o(i._sputc) for _sputc
     printfa.o(i.__0vfprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vfprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vfprintf) refers to main.o(.text.fputc) for fputc
+    printfa.o(i.__0vfprintf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0vprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vprintf) refers to printfa.o(i._printf_core) for _printf_core
-    printfa.o(i.__0vprintf) refers to main.o(.text.fputc) for fputc
+    printfa.o(i.__0vprintf) refers to fputc.o(i.fputc) for fputc
     printfa.o(i.__0vprintf) refers to stdout.o(.data) for __stdout
     printfa.o(i.__0vsnprintf) refers (Special) to iusefp.o(.text) for __I$use$fp
     printfa.o(i.__0vsnprintf) refers to printfa.o(i._printf_core) for _printf_core
@@ -1148,6 +1177,10 @@ Section Cross References
     entry5.o(.ARM.Collect$$$$00000004) refers to init.o(.text) for __scatterload
     entry9a.o(.ARM.Collect$$$$0000000B) refers to main.o(.text.main) for main
     entry9b.o(.ARM.Collect$$$$0000000C) refers to main.o(.text.main) for main
+    fputc.o(i.fputc) refers (Special) to iusesemip.o(.text) for __I$use$semihosting$fputc
+    fputc.o(i.fputc) refers (Special) to semi.o(.text) for __semihosting_library_function
+    fputc_h.o(i._fputc$hlt) refers (Special) to iusesemip.o(.text) for __I$use$semihosting$fputc
+    fputc_h.o(i._fputc$hlt) refers (Special) to semi.o(.text) for __semihosting_library_function
     uldiv.o(.text) refers to llushr.o(.text) for __aeabi_llsr
     uldiv.o(.text) refers to llshl.o(.text) for __aeabi_llsl
     dadd.o(.text) refers (Special) to iusefp.o(.text) for __I$use$fp
@@ -1173,12 +1206,13 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing main.o(.text), (0 bytes).
+    Removing main.o(.ARM.exidx.text.uprintf), (8 bytes).
+    Removing main.o(.ARM.exidx.text.ring_write), (8 bytes).
+    Removing main.o(.ARM.exidx.text.uart_start_tx_dma), (8 bytes).
+    Removing main.o(.ARM.exidx.text.uart_dma_init), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
-    Removing main.o(.ARM.exidx.text.test_status_led_init), (8 bytes).
-    Removing main.o(.ARM.exidx.text.get_chip_serial_num), (8 bytes).
-    Removing main.o(.ARM.exidx.text.memory_compare), (8 bytes).
-    Removing main.o(.ARM.exidx.text.turn_on_led), (8 bytes).
-    Removing main.o(.ARM.exidx.text.fputc), (8 bytes).
+    Removing main.o(.ARM.exidx.text.DMA0_Channel3_IRQHandler), (8 bytes).
+    Removing main.o(.ARM.exidx.text.USART0_IRQHandler), (8 bytes).
     Removing gd32e50x_it.o(.text), (0 bytes).
     Removing gd32e50x_it.o(.ARM.exidx.text.NMI_Handler), (8 bytes).
     Removing gd32e50x_it.o(.ARM.exidx.text.HardFault_Handler), (8 bytes).
@@ -1193,6 +1227,7 @@ Removing Unused input sections from the image.
     Removing systick.o(.ARM.exidx.text.systick_config), (8 bytes).
     Removing systick.o(.ARM.exidx.text.SysTick_Config), (8 bytes).
     Removing systick.o(.ARM.exidx.text.__NVIC_SetPriority), (8 bytes).
+    Removing systick.o(.text.delay_1ms), (44 bytes).
     Removing systick.o(.ARM.exidx.text.delay_1ms), (8 bytes).
     Removing systick.o(.ARM.exidx.text.delay_decrement), (8 bytes).
     Removing system_gd32e50x.o(.text), (0 bytes).
@@ -1484,13 +1519,10 @@ Removing Unused input sections from the image.
     Removing gd32e50x_dbg.o(.text.dbg_trace_pin_disable), (18 bytes).
     Removing gd32e50x_dbg.o(.ARM.exidx.text.dbg_trace_pin_disable), (8 bytes).
     Removing gd32e50x_dma.o(.text), (0 bytes).
-    Removing gd32e50x_dma.o(.text.dma_deinit), (150 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_deinit), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_periph_and_channel_check), (66 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_periph_and_channel_check), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_struct_para_init), (62 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_struct_para_init), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_init), (360 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_init), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_circulation_enable), (64 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_circulation_enable), (8 bytes).
@@ -1500,17 +1532,12 @@ Removing Unused input sections from the image.
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_memory_to_memory_enable), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_memory_to_memory_disable), (64 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_memory_to_memory_disable), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_channel_enable), (64 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_channel_enable), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_channel_disable), (64 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_channel_disable), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_periph_address_config), (70 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_periph_address_config), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_memory_address_config), (70 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_memory_address_config), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_transfer_number_config), (72 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_transfer_number_config), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_transfer_number_get), (58 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_transfer_number_get), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_priority_config), (104 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_priority_config), (8 bytes).
@@ -1528,17 +1555,13 @@ Removing Unused input sections from the image.
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_periph_increase_disable), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_transfer_direction_config), (108 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_transfer_direction_config), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_flag_get), (92 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_flag_get), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_flag_clear), (70 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_flag_clear), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_interrupt_enable), (74 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_interrupt_enable), (8 bytes).
     Removing gd32e50x_dma.o(.text.dma_interrupt_disable), (76 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_interrupt_disable), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_interrupt_flag_get), (250 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_interrupt_flag_get), (8 bytes).
-    Removing gd32e50x_dma.o(.text.dma_interrupt_flag_clear), (70 bytes).
     Removing gd32e50x_dma.o(.ARM.exidx.text.dma_interrupt_flag_clear), (8 bytes).
     Removing gd32e50x_enet.o(.text), (0 bytes).
     Removing gd32e50x_exmc.o(.text), (0 bytes).
@@ -1705,7 +1728,9 @@ Removing Unused input sections from the image.
     Removing gd32e50x_gpio.o(.text.gpio_afio_deinit), (24 bytes).
     Removing gd32e50x_gpio.o(.ARM.exidx.text.gpio_afio_deinit), (8 bytes).
     Removing gd32e50x_gpio.o(.ARM.exidx.text.gpio_init), (8 bytes).
+    Removing gd32e50x_gpio.o(.text.gpio_bit_set), (24 bytes).
     Removing gd32e50x_gpio.o(.ARM.exidx.text.gpio_bit_set), (8 bytes).
+    Removing gd32e50x_gpio.o(.text.gpio_bit_reset), (24 bytes).
     Removing gd32e50x_gpio.o(.ARM.exidx.text.gpio_bit_reset), (8 bytes).
     Removing gd32e50x_gpio.o(.text.gpio_bit_write), (58 bytes).
     Removing gd32e50x_gpio.o(.ARM.exidx.text.gpio_bit_write), (8 bytes).
@@ -1927,9 +1952,7 @@ Removing Unused input sections from the image.
     Removing gd32e50x_i2c.o(.text.i2c2_interrupt_flag_clear), (42 bytes).
     Removing gd32e50x_i2c.o(.ARM.exidx.text.i2c2_interrupt_flag_clear), (8 bytes).
     Removing gd32e50x_misc.o(.text), (0 bytes).
-    Removing gd32e50x_misc.o(.text.nvic_priority_group_set), (32 bytes).
     Removing gd32e50x_misc.o(.ARM.exidx.text.nvic_priority_group_set), (8 bytes).
-    Removing gd32e50x_misc.o(.text.nvic_irq_enable), (318 bytes).
     Removing gd32e50x_misc.o(.ARM.exidx.text.nvic_irq_enable), (8 bytes).
     Removing gd32e50x_misc.o(.text.nvic_irq_disable), (24 bytes).
     Removing gd32e50x_misc.o(.ARM.exidx.text.nvic_irq_disable), (8 bytes).
@@ -2360,7 +2383,9 @@ Removing Unused input sections from the image.
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_deinit), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_struct_para_init), (42 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_struct_para_init), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_init), (122 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_init), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_enable), (22 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_enable), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_disable), (22 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_disable), (8 bytes).
@@ -2386,12 +2411,15 @@ Removing Unused input sections from the image.
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_dma_disable), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_i2s_data_frame_format_config), (46 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_data_frame_format_config), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_i2s_data_transmit), (28 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_data_transmit), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_i2s_data_receive), (18 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_data_receive), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_bidirectional_transfer_config), (52 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_bidirectional_transfer_config), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_i2s_format_error_clear), (26 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_format_error_clear), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_crc_polynomial_set), (38 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_crc_polynomial_set), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_crc_polynomial_get), (18 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_crc_polynomial_get), (8 bytes).
@@ -2433,6 +2461,7 @@ Removing Unused input sections from the image.
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_interrupt_disable), (8 bytes).
     Removing gd32e50x_spi.o(.text.spi_i2s_interrupt_flag_get), (222 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_interrupt_flag_get), (8 bytes).
+    Removing gd32e50x_spi.o(.text.spi_i2s_flag_get), (50 bytes).
     Removing gd32e50x_spi.o(.ARM.exidx.text.spi_i2s_flag_get), (8 bytes).
     Removing gd32e50x_sqpi.o(.text), (0 bytes).
     Removing gd32e50x_sqpi.o(.text.sqpi_deinit), (24 bytes).
@@ -2600,11 +2629,8 @@ Removing Unused input sections from the image.
     Removing gd32e50x_usart.o(.text), (0 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_deinit), (8 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_baudrate_set), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_parity_config), (96 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_parity_config), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_word_length_set), (96 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_word_length_set), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_stop_bit_set), (96 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_stop_bit_set), (8 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_enable), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_disable), (52 bytes).
@@ -2621,8 +2647,8 @@ Removing Unused input sections from the image.
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_receiver_timeout_disable), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_receiver_timeout_threshold_config), (94 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_receiver_timeout_threshold_config), (8 bytes).
+    Removing gd32e50x_usart.o(.text.usart_data_transmit), (64 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_data_transmit), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_data_receive), (60 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_data_receive), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_mute_mode_enable), (52 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_mute_mode_enable), (8 bytes).
@@ -2672,9 +2698,7 @@ Removing Unused input sections from the image.
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_dma_receive_config), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_dma_transmit_config), (104 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_dma_transmit_config), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_hardware_flow_rts_config), (46 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_hardware_flow_rts_config), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_hardware_flow_cts_config), (46 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_hardware_flow_cts_config), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_data_first_config), (58 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_data_first_config), (8 bytes).
@@ -2692,16 +2716,14 @@ Removing Unused input sections from the image.
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_collision_detection_enable), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_collision_detection_disable), (26 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_collision_detection_disable), (8 bytes).
+    Removing gd32e50x_usart.o(.text.usart_flag_get), (72 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_flag_get), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_flag_clear), (86 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_flag_clear), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_interrupt_enable), (56 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_interrupt_enable), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart_interrupt_disable), (56 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_interrupt_disable), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_interrupt_flag_get), (110 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_interrupt_flag_get), (8 bytes).
-    Removing gd32e50x_usart.o(.text.usart_interrupt_flag_clear), (44 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart_interrupt_flag_clear), (8 bytes).
     Removing gd32e50x_usart.o(.text.usart5_data_first_config), (64 bytes).
     Removing gd32e50x_usart.o(.ARM.exidx.text.usart5_data_first_config), (8 bytes).
@@ -2823,8 +2845,11 @@ Removing Unused input sections from the image.
     Removing gd32e50x_can.o(.ARM.exidx.text.can_interrupt_flag_clear), (8 bytes).
     Removing gd32e50x_can.o(.rodata.g_can_fdlength_table), (7 bytes).
     Removing gd32e503v_eval.o(.text), (0 bytes).
+    Removing gd32e503v_eval.o(.text.gd_eval_led_init), (108 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_led_init), (8 bytes).
+    Removing gd32e503v_eval.o(.text.gd_eval_led_on), (44 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_led_on), (8 bytes).
+    Removing gd32e503v_eval.o(.text.gd_eval_led_off), (44 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_led_off), (8 bytes).
     Removing gd32e503v_eval.o(.text.gd_eval_led_toggle), (72 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_led_toggle), (8 bytes).
@@ -2832,7 +2857,11 @@ Removing Unused input sections from the image.
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_key_init), (8 bytes).
     Removing gd32e503v_eval.o(.text.gd_eval_key_state_get), (56 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_key_state_get), (8 bytes).
+    Removing gd32e503v_eval.o(.text.gd_eval_com_init), (200 bytes).
     Removing gd32e503v_eval.o(.ARM.exidx.text.gd_eval_com_init), (8 bytes).
+    Removing gd32e503v_eval.o(.data.GPIO_CLK), (8 bytes).
+    Removing gd32e503v_eval.o(.data.GPIO_PORT), (16 bytes).
+    Removing gd32e503v_eval.o(.data.GPIO_PIN), (16 bytes).
     Removing gd32e503v_eval.o(.data.KEY_CLK), (10 bytes).
     Removing gd32e503v_eval.o(.data.KEY_PORT), (20 bytes).
     Removing gd32e503v_eval.o(.data.KEY_PIN), (20 bytes).
@@ -2840,17 +2869,31 @@ Removing Unused input sections from the image.
     Removing gd32e503v_eval.o(.data.KEY_PORT_SOURCE), (5 bytes).
     Removing gd32e503v_eval.o(.data.KEY_PIN_SOURCE), (5 bytes).
     Removing gd32e503v_eval.o(.data.KEY_EXTI_LINE), (20 bytes).
+    Removing gd32e503v_eval.o(.data.COM_GPIO_CLK), (2 bytes).
+    Removing gd32e503v_eval.o(.data.COM_CLK), (2 bytes).
+    Removing gd32e503v_eval.o(.data.COM_GPIO_PORT), (4 bytes).
+    Removing gd32e503v_eval.o(.data.COM_TX_PIN), (4 bytes).
+    Removing gd32e503v_eval.o(.data.COM_RX_PIN), (4 bytes).
     Removing gd25qxx.o(.text), (0 bytes).
+    Removing gd25qxx.o(.text.spi_flash_init), (164 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_init), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_sector_erase), (94 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_sector_erase), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_write_enable), (44 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_write_enable), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_send_byte), (94 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_send_byte), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_wait_for_write_end), (76 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_wait_for_write_end), (8 bytes).
     Removing gd25qxx.o(.text.spi_flash_bulk_erase), (58 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_bulk_erase), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_page_write), (154 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_page_write), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_buffer_write), (424 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_buffer_write), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_buffer_read), (144 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_buffer_read), (8 bytes).
+    Removing gd25qxx.o(.text.spi_flash_read_id), (98 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_read_id), (8 bytes).
     Removing gd25qxx.o(.text.spi_flash_start_read_sequence), (74 bytes).
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_start_read_sequence), (8 bytes).
@@ -2860,7 +2903,7 @@ Removing Unused input sections from the image.
     Removing gd25qxx.o(.ARM.exidx.text.spi_flash_send_halfword), (8 bytes).
     Removing startup_gd32e50x_hd.o(HEAP), (1024 bytes).
 
-1687 unused section(s) (total 66302 bytes) removed from the image.
+1697 unused section(s) (total 66170 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2889,8 +2932,14 @@ Image Symbol Table
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc.o ABSOLUTE
+    ../clib/microlib/stdio/fputc.c           0x00000000   Number         0  fputc_h.o ABSOLUTE
+    ../clib/microlib/stdio/semi.s            0x00000000   Number         0  semi.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
+    ../clib/microlib/stubs.s                 0x00000000   Number         0  iusesemip.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
     ../fplib/microlib/fpepilogue.c           0x00000000   Number         0  depilogue.o ABSOLUTE
@@ -2948,128 +2997,118 @@ Image Symbol Table
     .ARM.Collect$$$$00002712                 0x080001b0   Section        4  entry2.o(.ARM.Collect$$$$00002712)
     $v0                                      0x080001b4   Number         0  startup_gd32e50x_hd.o(.text)
     .text                                    0x080001b4   Section       36  startup_gd32e50x_hd.o(.text)
-    .text                                    0x080001d8   Section        0  uidiv.o(.text)
-    .text                                    0x08000204   Section        0  uldiv.o(.text)
-    .text                                    0x08000266   Section        0  iusefp.o(.text)
-    .text                                    0x08000266   Section        0  dadd.o(.text)
-    .text                                    0x080003b4   Section        0  dmul.o(.text)
-    .text                                    0x08000498   Section        0  ddiv.o(.text)
-    .text                                    0x08000576   Section        0  dfixul.o(.text)
-    .text                                    0x080005a8   Section       48  cdrcmple.o(.text)
-    .text                                    0x080005d8   Section       36  init.o(.text)
-    .text                                    0x080005fc   Section        0  llshl.o(.text)
-    .text                                    0x0800061a   Section        0  llushr.o(.text)
-    .text                                    0x0800063a   Section        0  llsshr.o(.text)
-    .text                                    0x0800065e   Section        0  depilogue.o(.text)
-    [Anonymous Symbol]                       0x08000718   Section        0  gd32e50x_it.o(.text.BusFault_Handler)
-    [Anonymous Symbol]                       0x0800071c   Section        0  gd32e50x_it.o(.text.DebugMon_Handler)
-    [Anonymous Symbol]                       0x08000720   Section        0  gd32e50x_it.o(.text.HardFault_Handler)
-    [Anonymous Symbol]                       0x08000724   Section        0  gd32e50x_it.o(.text.MemManage_Handler)
-    [Anonymous Symbol]                       0x08000728   Section        0  gd32e50x_it.o(.text.NMI_Handler)
-    [Anonymous Symbol]                       0x0800072c   Section        0  gd32e50x_it.o(.text.PendSV_Handler)
-    [Anonymous Symbol]                       0x08000730   Section        0  gd32e50x_it.o(.text.SVC_Handler)
-    SysTick_Config                           0x08000735   Thumb Code    90  systick.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x08000734   Section        0  systick.o(.text.SysTick_Config)
-    [Anonymous Symbol]                       0x08000790   Section        0  gd32e50x_it.o(.text.SysTick_Handler)
-    [Anonymous Symbol]                       0x08000798   Section        0  system_gd32e50x.o(.text.SystemInit)
-    [Anonymous Symbol]                       0x08000884   Section        0  gd32e50x_it.o(.text.UsageFault_Handler)
-    __NVIC_SetPriority                       0x08000889   Thumb Code    74  systick.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x08000888   Section        0  systick.o(.text.__NVIC_SetPriority)
-    [Anonymous Symbol]                       0x080008d4   Section        0  systick.o(.text.delay_1ms)
-    [Anonymous Symbol]                       0x08000900   Section        0  systick.o(.text.delay_decrement)
-    [Anonymous Symbol]                       0x08000924   Section        0  main.o(.text.fputc)
-    [Anonymous Symbol]                       0x08000964   Section        0  gd32e503v_eval.o(.text.gd_eval_com_init)
-    [Anonymous Symbol]                       0x08000a2c   Section        0  gd32e503v_eval.o(.text.gd_eval_led_init)
-    [Anonymous Symbol]                       0x08000a98   Section        0  gd32e503v_eval.o(.text.gd_eval_led_off)
-    [Anonymous Symbol]                       0x08000ac4   Section        0  gd32e503v_eval.o(.text.gd_eval_led_on)
-    get_chip_serial_num                      0x08000af1   Thumb Code    46  main.o(.text.get_chip_serial_num)
-    [Anonymous Symbol]                       0x08000af0   Section        0  main.o(.text.get_chip_serial_num)
-    [Anonymous Symbol]                       0x08000b20   Section        0  gd32e50x_gpio.o(.text.gpio_bit_reset)
-    [Anonymous Symbol]                       0x08000b38   Section        0  gd32e50x_gpio.o(.text.gpio_bit_set)
-    [Anonymous Symbol]                       0x08000b50   Section        0  gd32e50x_gpio.o(.text.gpio_init)
-    [Anonymous Symbol]                       0x08000cf8   Section        0  main.o(.text.main)
-    [Anonymous Symbol]                       0x08000fd8   Section        0  main.o(.text.memory_compare)
-    [Anonymous Symbol]                       0x08001038   Section        0  gd32e50x_misc.o(.text.nvic_vector_table_set)
-    [Anonymous Symbol]                       0x0800106c   Section        0  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
-    [Anonymous Symbol]                       0x080012e4   Section        0  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
-    [Anonymous Symbol]                       0x08001314   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
-    [Anonymous Symbol]                       0x08001344   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
-    [Anonymous Symbol]                       0x08001374   Section        0  gd32e50x_spi.o(.text.spi_crc_polynomial_set)
-    [Anonymous Symbol]                       0x0800139c   Section        0  gd32e50x_spi.o(.text.spi_enable)
-    [Anonymous Symbol]                       0x080013b4   Section        0  gd25qxx.o(.text.spi_flash_buffer_read)
-    [Anonymous Symbol]                       0x08001444   Section        0  gd25qxx.o(.text.spi_flash_buffer_write)
-    [Anonymous Symbol]                       0x080015ec   Section        0  gd25qxx.o(.text.spi_flash_init)
-    [Anonymous Symbol]                       0x08001690   Section        0  gd25qxx.o(.text.spi_flash_page_write)
-    [Anonymous Symbol]                       0x0800172c   Section        0  gd25qxx.o(.text.spi_flash_read_id)
-    [Anonymous Symbol]                       0x08001790   Section        0  gd25qxx.o(.text.spi_flash_sector_erase)
-    [Anonymous Symbol]                       0x080017f0   Section        0  gd25qxx.o(.text.spi_flash_send_byte)
-    [Anonymous Symbol]                       0x08001850   Section        0  gd25qxx.o(.text.spi_flash_wait_for_write_end)
-    [Anonymous Symbol]                       0x0800189c   Section        0  gd25qxx.o(.text.spi_flash_write_enable)
-    [Anonymous Symbol]                       0x080018c8   Section        0  gd32e50x_spi.o(.text.spi_i2s_data_receive)
-    [Anonymous Symbol]                       0x080018dc   Section        0  gd32e50x_spi.o(.text.spi_i2s_data_transmit)
-    [Anonymous Symbol]                       0x080018f8   Section        0  gd32e50x_spi.o(.text.spi_i2s_flag_get)
-    [Anonymous Symbol]                       0x0800192c   Section        0  gd32e50x_spi.o(.text.spi_init)
-    system_clock_180m_hxtal                  0x080019a9   Thumb Code   402  system_gd32e50x.o(.text.system_clock_180m_hxtal)
-    [Anonymous Symbol]                       0x080019a8   Section        0  system_gd32e50x.o(.text.system_clock_180m_hxtal)
-    system_clock_config                      0x08001b3d   Thumb Code     8  system_gd32e50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x08001b3c   Section        0  system_gd32e50x.o(.text.system_clock_config)
-    [Anonymous Symbol]                       0x08001b44   Section        0  systick.o(.text.systick_config)
-    [Anonymous Symbol]                       0x08001b80   Section        0  main.o(.text.test_status_led_init)
-    turn_on_led                              0x08001bc1   Thumb Code    96  main.o(.text.turn_on_led)
-    [Anonymous Symbol]                       0x08001bc0   Section        0  main.o(.text.turn_on_led)
-    [Anonymous Symbol]                       0x08001c20   Section        0  gd32e50x_usart.o(.text.usart_baudrate_set)
-    [Anonymous Symbol]                       0x08001db4   Section        0  gd32e50x_usart.o(.text.usart_data_transmit)
-    [Anonymous Symbol]                       0x08001df4   Section        0  gd32e50x_usart.o(.text.usart_deinit)
-    [Anonymous Symbol]                       0x08001ed4   Section        0  gd32e50x_usart.o(.text.usart_enable)
-    [Anonymous Symbol]                       0x08001f08   Section        0  gd32e50x_usart.o(.text.usart_flag_get)
-    [Anonymous Symbol]                       0x08001f50   Section        0  gd32e50x_usart.o(.text.usart_receive_config)
-    [Anonymous Symbol]                       0x08001fbc   Section        0  gd32e50x_usart.o(.text.usart_transmit_config)
-    i.__0printf                              0x08002028   Section        0  printfa.o(i.__0printf)
-    i.__scatterload_copy                     0x08002048   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08002056   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08002058   Section       14  handlers.o(i.__scatterload_zeroinit)
-    _fp_digits                               0x08002069   Thumb Code   366  printfa.o(i._fp_digits)
-    i._fp_digits                             0x08002068   Section        0  printfa.o(i._fp_digits)
-    _printf_core                             0x080021ed   Thumb Code  1744  printfa.o(i._printf_core)
-    i._printf_core                           0x080021ec   Section        0  printfa.o(i._printf_core)
-    _printf_post_padding                     0x080028c9   Thumb Code    36  printfa.o(i._printf_post_padding)
-    i._printf_post_padding                   0x080028c8   Section        0  printfa.o(i._printf_post_padding)
-    _printf_pre_padding                      0x080028ed   Thumb Code    46  printfa.o(i._printf_pre_padding)
-    i._printf_pre_padding                    0x080028ec   Section        0  printfa.o(i._printf_pre_padding)
-    .L.str.9                                 0x0800291a   Data          29  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x0800291a   Section        0  main.o(.rodata.str1.1)
-    .L.str.6                                 0x08002937   Data          28  main.o(.rodata.str1.1)
-    .L.str.11                                0x08002953   Data          29  main.o(.rodata.str1.1)
-    .L.str.12                                0x08002970   Data          29  main.o(.rodata.str1.1)
-    .L.str                                   0x0800298d   Data          84  main.o(.rodata.str1.1)
-    .L.str.4                                 0x080029e1   Data          56  main.o(.rodata.str1.1)
-    .L.str.1                                 0x08002a19   Data          49  main.o(.rodata.str1.1)
-    .L.str.10                                0x08002a4a   Data          43  main.o(.rodata.str1.1)
-    .L.str.2                                 0x08002a75   Data          34  main.o(.rodata.str1.1)
-    .L.str.5                                 0x08002a97   Data          22  main.o(.rodata.str1.1)
-    .L.str.3                                 0x08002aad   Data          60  main.o(.rodata.str1.1)
-    .L.str.8                                 0x08002ae6   Data           3  main.o(.rodata.str1.1)
-    .L.str.7                                 0x08002ae9   Data           8  main.o(.rodata.str1.1)
-    .data                                    0x20000000   Section        4  stdout.o(.data)
-    COM_CLK                                  0x20000004   Data           2  gd32e503v_eval.o(.data.COM_CLK)
-    [Anonymous Symbol]                       0x20000004   Section        0  gd32e503v_eval.o(.data.COM_CLK)
-    COM_GPIO_CLK                             0x20000006   Data           2  gd32e503v_eval.o(.data.COM_GPIO_CLK)
-    [Anonymous Symbol]                       0x20000006   Section        0  gd32e503v_eval.o(.data.COM_GPIO_CLK)
-    COM_GPIO_PORT                            0x20000008   Data           4  gd32e503v_eval.o(.data.COM_GPIO_PORT)
-    [Anonymous Symbol]                       0x20000008   Section        0  gd32e503v_eval.o(.data.COM_GPIO_PORT)
-    COM_RX_PIN                               0x2000000c   Data           4  gd32e503v_eval.o(.data.COM_RX_PIN)
-    [Anonymous Symbol]                       0x2000000c   Section        0  gd32e503v_eval.o(.data.COM_RX_PIN)
-    COM_TX_PIN                               0x20000010   Data           4  gd32e503v_eval.o(.data.COM_TX_PIN)
-    [Anonymous Symbol]                       0x20000010   Section        0  gd32e503v_eval.o(.data.COM_TX_PIN)
-    GPIO_CLK                                 0x20000014   Data           8  gd32e503v_eval.o(.data.GPIO_CLK)
-    [Anonymous Symbol]                       0x20000014   Section        0  gd32e503v_eval.o(.data.GPIO_CLK)
-    GPIO_PIN                                 0x2000001c   Data          16  gd32e503v_eval.o(.data.GPIO_PIN)
-    [Anonymous Symbol]                       0x2000001c   Section        0  gd32e503v_eval.o(.data.GPIO_PIN)
-    GPIO_PORT                                0x2000002c   Data          16  gd32e503v_eval.o(.data.GPIO_PORT)
-    [Anonymous Symbol]                       0x2000002c   Section        0  gd32e503v_eval.o(.data.GPIO_PORT)
-    delay                                    0x20000044   Data           4  systick.o(.bss.delay)
-    [Anonymous Symbol]                       0x20000044   Section        0  systick.o(.bss.delay)
-    STACK                                    0x20000260   Section     1024  startup_gd32e50x_hd.o(STACK)
+    .text                                    0x080001d8   Section        0  memcpya.o(.text)
+    .text                                    0x080001fc   Section        0  uidiv.o(.text)
+    .text                                    0x08000228   Section        0  uldiv.o(.text)
+    .text                                    0x0800028a   Section        0  iusefp.o(.text)
+    .text                                    0x0800028a   Section        0  dadd.o(.text)
+    .text                                    0x080003d8   Section        0  dmul.o(.text)
+    .text                                    0x080004bc   Section        0  ddiv.o(.text)
+    .text                                    0x0800059a   Section        0  dfixul.o(.text)
+    .text                                    0x080005cc   Section       48  cdrcmple.o(.text)
+    .text                                    0x080005fc   Section       36  init.o(.text)
+    .text                                    0x08000620   Section        0  llshl.o(.text)
+    .text                                    0x0800063e   Section        0  llushr.o(.text)
+    .text                                    0x0800065e   Section        0  llsshr.o(.text)
+    .text                                    0x08000682   Section        0  depilogue.o(.text)
+    [Anonymous Symbol]                       0x0800073c   Section        0  gd32e50x_it.o(.text.BusFault_Handler)
+    [Anonymous Symbol]                       0x08000740   Section        0  main.o(.text.DMA0_Channel3_IRQHandler)
+    [Anonymous Symbol]                       0x0800078c   Section        0  gd32e50x_it.o(.text.DebugMon_Handler)
+    [Anonymous Symbol]                       0x08000790   Section        0  gd32e50x_it.o(.text.HardFault_Handler)
+    [Anonymous Symbol]                       0x08000794   Section        0  gd32e50x_it.o(.text.MemManage_Handler)
+    [Anonymous Symbol]                       0x08000798   Section        0  gd32e50x_it.o(.text.NMI_Handler)
+    [Anonymous Symbol]                       0x0800079c   Section        0  gd32e50x_it.o(.text.PendSV_Handler)
+    [Anonymous Symbol]                       0x080007a0   Section        0  gd32e50x_it.o(.text.SVC_Handler)
+    SysTick_Config                           0x080007a5   Thumb Code    90  systick.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x080007a4   Section        0  systick.o(.text.SysTick_Config)
+    [Anonymous Symbol]                       0x08000800   Section        0  gd32e50x_it.o(.text.SysTick_Handler)
+    [Anonymous Symbol]                       0x08000808   Section        0  system_gd32e50x.o(.text.SystemInit)
+    [Anonymous Symbol]                       0x080008f4   Section        0  main.o(.text.USART0_IRQHandler)
+    [Anonymous Symbol]                       0x080009a8   Section        0  gd32e50x_it.o(.text.UsageFault_Handler)
+    __NVIC_SetPriority                       0x080009ad   Thumb Code    74  systick.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x080009ac   Section        0  systick.o(.text.__NVIC_SetPriority)
+    [Anonymous Symbol]                       0x080009f8   Section        0  systick.o(.text.delay_decrement)
+    [Anonymous Symbol]                       0x08000a1c   Section        0  gd32e50x_dma.o(.text.dma_channel_disable)
+    [Anonymous Symbol]                       0x08000a5c   Section        0  gd32e50x_dma.o(.text.dma_channel_enable)
+    [Anonymous Symbol]                       0x08000a9c   Section        0  gd32e50x_dma.o(.text.dma_deinit)
+    [Anonymous Symbol]                       0x08000b34   Section        0  gd32e50x_dma.o(.text.dma_flag_get)
+    [Anonymous Symbol]                       0x08000b90   Section        0  gd32e50x_dma.o(.text.dma_init)
+    [Anonymous Symbol]                       0x08000cf8   Section        0  gd32e50x_dma.o(.text.dma_interrupt_enable)
+    [Anonymous Symbol]                       0x08000d44   Section        0  gd32e50x_dma.o(.text.dma_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08000d8c   Section        0  gd32e50x_dma.o(.text.dma_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08000e88   Section        0  gd32e50x_dma.o(.text.dma_memory_address_config)
+    dma_periph_and_channel_check             0x08000ed1   Thumb Code    66  gd32e50x_dma.o(.text.dma_periph_and_channel_check)
+    [Anonymous Symbol]                       0x08000ed0   Section        0  gd32e50x_dma.o(.text.dma_periph_and_channel_check)
+    [Anonymous Symbol]                       0x08000f14   Section        0  gd32e50x_dma.o(.text.dma_transfer_number_config)
+    [Anonymous Symbol]                       0x08000f5c   Section        0  gd32e50x_dma.o(.text.dma_transfer_number_get)
+    [Anonymous Symbol]                       0x08000f98   Section        0  gd32e50x_gpio.o(.text.gpio_init)
+    [Anonymous Symbol]                       0x08001140   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x080011e8   Section        0  gd32e50x_misc.o(.text.nvic_irq_enable)
+    [Anonymous Symbol]                       0x08001328   Section        0  gd32e50x_misc.o(.text.nvic_priority_group_set)
+    [Anonymous Symbol]                       0x08001348   Section        0  gd32e50x_misc.o(.text.nvic_vector_table_set)
+    [Anonymous Symbol]                       0x0800137c   Section        0  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
+    [Anonymous Symbol]                       0x080015f4   Section        0  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
+    [Anonymous Symbol]                       0x08001624   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
+    [Anonymous Symbol]                       0x08001654   Section        0  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
+    ring_write                               0x08001685   Thumb Code   146  main.o(.text.ring_write)
+    [Anonymous Symbol]                       0x08001684   Section        0  main.o(.text.ring_write)
+    system_clock_180m_hxtal                  0x08001719   Thumb Code   402  system_gd32e50x.o(.text.system_clock_180m_hxtal)
+    [Anonymous Symbol]                       0x08001718   Section        0  system_gd32e50x.o(.text.system_clock_180m_hxtal)
+    system_clock_config                      0x080018ad   Thumb Code     8  system_gd32e50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x080018ac   Section        0  system_gd32e50x.o(.text.system_clock_config)
+    [Anonymous Symbol]                       0x080018b4   Section        0  systick.o(.text.systick_config)
+    [Anonymous Symbol]                       0x080018f0   Section        0  main.o(.text.uart_dma_init)
+    uart_start_tx_dma                        0x08001a69   Thumb Code   128  main.o(.text.uart_start_tx_dma)
+    [Anonymous Symbol]                       0x08001a68   Section        0  main.o(.text.uart_start_tx_dma)
+    [Anonymous Symbol]                       0x08001ae8   Section        0  main.o(.text.uprintf)
+    [Anonymous Symbol]                       0x08001b40   Section        0  gd32e50x_usart.o(.text.usart_baudrate_set)
+    [Anonymous Symbol]                       0x08001cd4   Section        0  gd32e50x_usart.o(.text.usart_data_receive)
+    [Anonymous Symbol]                       0x08001d10   Section        0  gd32e50x_usart.o(.text.usart_deinit)
+    [Anonymous Symbol]                       0x08001df0   Section        0  gd32e50x_usart.o(.text.usart_enable)
+    [Anonymous Symbol]                       0x08001e24   Section        0  gd32e50x_usart.o(.text.usart_hardware_flow_cts_config)
+    [Anonymous Symbol]                       0x08001e54   Section        0  gd32e50x_usart.o(.text.usart_hardware_flow_rts_config)
+    [Anonymous Symbol]                       0x08001e84   Section        0  gd32e50x_usart.o(.text.usart_interrupt_enable)
+    [Anonymous Symbol]                       0x08001ebc   Section        0  gd32e50x_usart.o(.text.usart_interrupt_flag_clear)
+    [Anonymous Symbol]                       0x08001ee8   Section        0  gd32e50x_usart.o(.text.usart_interrupt_flag_get)
+    [Anonymous Symbol]                       0x08001f58   Section        0  gd32e50x_usart.o(.text.usart_parity_config)
+    [Anonymous Symbol]                       0x08001fb8   Section        0  gd32e50x_usart.o(.text.usart_receive_config)
+    [Anonymous Symbol]                       0x08002024   Section        0  gd32e50x_usart.o(.text.usart_stop_bit_set)
+    [Anonymous Symbol]                       0x08002084   Section        0  gd32e50x_usart.o(.text.usart_transmit_config)
+    [Anonymous Symbol]                       0x080020f0   Section        0  gd32e50x_usart.o(.text.usart_word_length_set)
+    i.__0vsnprintf                           0x08002150   Section        0  printfa.o(i.__0vsnprintf)
+    i.__scatterload_copy                     0x0800217c   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x0800218a   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x0800218c   Section       14  handlers.o(i.__scatterload_zeroinit)
+    _fp_digits                               0x0800219d   Thumb Code   366  printfa.o(i._fp_digits)
+    i._fp_digits                             0x0800219c   Section        0  printfa.o(i._fp_digits)
+    _printf_core                             0x08002321   Thumb Code  1744  printfa.o(i._printf_core)
+    i._printf_core                           0x08002320   Section        0  printfa.o(i._printf_core)
+    _printf_post_padding                     0x080029fd   Thumb Code    36  printfa.o(i._printf_post_padding)
+    i._printf_post_padding                   0x080029fc   Section        0  printfa.o(i._printf_post_padding)
+    _printf_pre_padding                      0x08002a21   Thumb Code    46  printfa.o(i._printf_pre_padding)
+    i._printf_pre_padding                    0x08002a20   Section        0  printfa.o(i._printf_pre_padding)
+    _snputc                                  0x08002a4f   Thumb Code    22  printfa.o(i._snputc)
+    i._snputc                                0x08002a4e   Section        0  printfa.o(i._snputc)
+    .L.str                                   0x08002a64   Data          16  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x08002a64   Section        0  main.o(.rodata.str1.1)
+    .L.str.3                                 0x08002a71   Data           3  main.o(.rodata.str1.1)
+    .L.str.1                                 0x08002a74   Data          16  main.o(.rodata.str1.1)
+    .L.str.2                                 0x08002a84   Data           6  main.o(.rodata.str1.1)
+    delay                                    0x20000008   Data           4  systick.o(.bss.delay)
+    [Anonymous Symbol]                       0x20000008   Section        0  systick.o(.bss.delay)
+    rx_dma_buf                               0x2000000c   Data         256  main.o(.bss.rx_dma_buf)
+    [Anonymous Symbol]                       0x2000000c   Section        0  main.o(.bss.rx_dma_buf)
+    rx_frame_done                            0x2000010c   Data           1  main.o(.bss.rx_frame_done)
+    [Anonymous Symbol]                       0x2000010c   Section        0  main.o(.bss.rx_frame_done)
+    rx_len                                   0x2000010e   Data           2  main.o(.bss.rx_len)
+    [Anonymous Symbol]                       0x2000010e   Section        0  main.o(.bss.rx_len)
+    rx_user_buf                              0x20000110   Data         256  main.o(.bss.rx_user_buf)
+    [Anonymous Symbol]                       0x20000110   Section        0  main.o(.bss.rx_user_buf)
+    tx_ring                                  0x20000210   Data         516  main.o(.bss.tx_ring)
+    [Anonymous Symbol]                       0x20000210   Section        0  main.o(.bss.tx_ring)
+    uprintf.tmp                              0x20000414   Data         128  main.o(.bss.uprintf.tmp)
+    [Anonymous Symbol]                       0x20000414   Section        0  main.o(.bss.uprintf.tmp)
+    STACK                                    0x20000498   Section     1024  startup_gd32e50x_hd.o(STACK)
 
     Global Symbols
 
@@ -3105,7 +3144,6 @@ Image Symbol Table
     DMA0_Channel0_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     DMA0_Channel1_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     DMA0_Channel2_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
-    DMA0_Channel3_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     DMA0_Channel4_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     DMA0_Channel5_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     DMA0_Channel6_IRQHandler                 0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
@@ -3161,7 +3199,6 @@ Image Symbol Table
     TIMER7_UP_TIMER12_IRQHandler             0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     UART3_IRQHandler                         0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     UART4_IRQHandler                         0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
-    USART0_IRQHandler                        0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     USART1_IRQHandler                        0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     USART2_IRQHandler                        0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     USART5_IRQHandler                        0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
@@ -3170,98 +3207,92 @@ Image Symbol Table
     USBD_LP_CAN0_RX0_IRQHandler              0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     USBD_WKUP_IRQHandler                     0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
     WWDGT_IRQHandler                         0x080001cf   Thumb Code     0  startup_gd32e50x_hd.o(.text)
-    __aeabi_uidiv                            0x080001d9   Thumb Code     0  uidiv.o(.text)
-    __aeabi_uidivmod                         0x080001d9   Thumb Code    44  uidiv.o(.text)
-    __aeabi_uldivmod                         0x08000205   Thumb Code    98  uldiv.o(.text)
-    __I$use$fp                               0x08000267   Thumb Code     0  iusefp.o(.text)
-    __aeabi_dadd                             0x08000267   Thumb Code   322  dadd.o(.text)
-    __aeabi_dsub                             0x080003a9   Thumb Code     6  dadd.o(.text)
-    __aeabi_drsub                            0x080003af   Thumb Code     6  dadd.o(.text)
-    __aeabi_dmul                             0x080003b5   Thumb Code   228  dmul.o(.text)
-    __aeabi_ddiv                             0x08000499   Thumb Code   222  ddiv.o(.text)
-    __aeabi_d2ulz                            0x08000577   Thumb Code    48  dfixul.o(.text)
-    __aeabi_cdrcmple                         0x080005a9   Thumb Code    48  cdrcmple.o(.text)
-    __scatterload                            0x080005d9   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x080005d9   Thumb Code     0  init.o(.text)
-    __aeabi_llsl                             0x080005fd   Thumb Code    30  llshl.o(.text)
-    _ll_shift_l                              0x080005fd   Thumb Code     0  llshl.o(.text)
-    __aeabi_llsr                             0x0800061b   Thumb Code    32  llushr.o(.text)
-    _ll_ushift_r                             0x0800061b   Thumb Code     0  llushr.o(.text)
-    __aeabi_lasr                             0x0800063b   Thumb Code    36  llsshr.o(.text)
-    _ll_sshift_r                             0x0800063b   Thumb Code     0  llsshr.o(.text)
-    _double_round                            0x0800065f   Thumb Code    30  depilogue.o(.text)
-    _double_epilogue                         0x0800067d   Thumb Code   156  depilogue.o(.text)
-    BusFault_Handler                         0x08000719   Thumb Code     4  gd32e50x_it.o(.text.BusFault_Handler)
-    DebugMon_Handler                         0x0800071d   Thumb Code     4  gd32e50x_it.o(.text.DebugMon_Handler)
-    HardFault_Handler                        0x08000721   Thumb Code     4  gd32e50x_it.o(.text.HardFault_Handler)
-    MemManage_Handler                        0x08000725   Thumb Code     4  gd32e50x_it.o(.text.MemManage_Handler)
-    NMI_Handler                              0x08000729   Thumb Code     4  gd32e50x_it.o(.text.NMI_Handler)
-    PendSV_Handler                           0x0800072d   Thumb Code     4  gd32e50x_it.o(.text.PendSV_Handler)
-    SVC_Handler                              0x08000731   Thumb Code     4  gd32e50x_it.o(.text.SVC_Handler)
-    SysTick_Handler                          0x08000791   Thumb Code     8  gd32e50x_it.o(.text.SysTick_Handler)
-    SystemInit                               0x08000799   Thumb Code   236  system_gd32e50x.o(.text.SystemInit)
-    UsageFault_Handler                       0x08000885   Thumb Code     4  gd32e50x_it.o(.text.UsageFault_Handler)
-    delay_1ms                                0x080008d5   Thumb Code    44  systick.o(.text.delay_1ms)
-    delay_decrement                          0x08000901   Thumb Code    34  systick.o(.text.delay_decrement)
-    fputc                                    0x08000925   Thumb Code    62  main.o(.text.fputc)
-    gd_eval_com_init                         0x08000965   Thumb Code   200  gd32e503v_eval.o(.text.gd_eval_com_init)
-    gd_eval_led_init                         0x08000a2d   Thumb Code   108  gd32e503v_eval.o(.text.gd_eval_led_init)
-    gd_eval_led_off                          0x08000a99   Thumb Code    44  gd32e503v_eval.o(.text.gd_eval_led_off)
-    gd_eval_led_on                           0x08000ac5   Thumb Code    44  gd32e503v_eval.o(.text.gd_eval_led_on)
-    gpio_bit_reset                           0x08000b21   Thumb Code    24  gd32e50x_gpio.o(.text.gpio_bit_reset)
-    gpio_bit_set                             0x08000b39   Thumb Code    24  gd32e50x_gpio.o(.text.gpio_bit_set)
-    gpio_init                                0x08000b51   Thumb Code   424  gd32e50x_gpio.o(.text.gpio_init)
-    main                                     0x08000cf9   Thumb Code   734  main.o(.text.main)
-    memory_compare                           0x08000fd9   Thumb Code    94  main.o(.text.memory_compare)
-    nvic_vector_table_set                    0x08001039   Thumb Code    50  gd32e50x_misc.o(.text.nvic_vector_table_set)
-    rcu_clock_freq_get                       0x0800106d   Thumb Code   630  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
-    rcu_periph_clock_enable                  0x080012e5   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
-    rcu_periph_reset_disable                 0x08001315   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
-    rcu_periph_reset_enable                  0x08001345   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
-    spi_crc_polynomial_set                   0x08001375   Thumb Code    38  gd32e50x_spi.o(.text.spi_crc_polynomial_set)
-    spi_enable                               0x0800139d   Thumb Code    22  gd32e50x_spi.o(.text.spi_enable)
-    spi_flash_buffer_read                    0x080013b5   Thumb Code   144  gd25qxx.o(.text.spi_flash_buffer_read)
-    spi_flash_buffer_write                   0x08001445   Thumb Code   424  gd25qxx.o(.text.spi_flash_buffer_write)
-    spi_flash_init                           0x080015ed   Thumb Code   164  gd25qxx.o(.text.spi_flash_init)
-    spi_flash_page_write                     0x08001691   Thumb Code   154  gd25qxx.o(.text.spi_flash_page_write)
-    spi_flash_read_id                        0x0800172d   Thumb Code    98  gd25qxx.o(.text.spi_flash_read_id)
-    spi_flash_sector_erase                   0x08001791   Thumb Code    94  gd25qxx.o(.text.spi_flash_sector_erase)
-    spi_flash_send_byte                      0x080017f1   Thumb Code    94  gd25qxx.o(.text.spi_flash_send_byte)
-    spi_flash_wait_for_write_end             0x08001851   Thumb Code    76  gd25qxx.o(.text.spi_flash_wait_for_write_end)
-    spi_flash_write_enable                   0x0800189d   Thumb Code    44  gd25qxx.o(.text.spi_flash_write_enable)
-    spi_i2s_data_receive                     0x080018c9   Thumb Code    18  gd32e50x_spi.o(.text.spi_i2s_data_receive)
-    spi_i2s_data_transmit                    0x080018dd   Thumb Code    28  gd32e50x_spi.o(.text.spi_i2s_data_transmit)
-    spi_i2s_flag_get                         0x080018f9   Thumb Code    50  gd32e50x_spi.o(.text.spi_i2s_flag_get)
-    spi_init                                 0x0800192d   Thumb Code   122  gd32e50x_spi.o(.text.spi_init)
-    systick_config                           0x08001b45   Thumb Code    60  systick.o(.text.systick_config)
-    test_status_led_init                     0x08001b81   Thumb Code    64  main.o(.text.test_status_led_init)
-    usart_baudrate_set                       0x08001c21   Thumb Code   402  gd32e50x_usart.o(.text.usart_baudrate_set)
-    usart_data_transmit                      0x08001db5   Thumb Code    64  gd32e50x_usart.o(.text.usart_data_transmit)
-    usart_deinit                             0x08001df5   Thumb Code   222  gd32e50x_usart.o(.text.usart_deinit)
-    usart_enable                             0x08001ed5   Thumb Code    52  gd32e50x_usart.o(.text.usart_enable)
-    usart_flag_get                           0x08001f09   Thumb Code    72  gd32e50x_usart.o(.text.usart_flag_get)
-    usart_receive_config                     0x08001f51   Thumb Code   106  gd32e50x_usart.o(.text.usart_receive_config)
-    usart_transmit_config                    0x08001fbd   Thumb Code   106  gd32e50x_usart.o(.text.usart_transmit_config)
-    __0printf                                0x08002029   Thumb Code    22  printfa.o(i.__0printf)
-    __1printf                                0x08002029   Thumb Code     0  printfa.o(i.__0printf)
-    __2printf                                0x08002029   Thumb Code     0  printfa.o(i.__0printf)
-    __c89printf                              0x08002029   Thumb Code     0  printfa.o(i.__0printf)
-    printf                                   0x08002029   Thumb Code     0  printfa.o(i.__0printf)
-    __scatterload_copy                       0x08002049   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08002057   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08002059   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    Region$$Table$$Base                      0x08002af4   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08002b14   Number         0  anon$$obj.o(Region$$Table)
-    __stdout                                 0x20000000   Data           4  stdout.o(.data)
-    SystemCoreClock                          0x2000003c   Data           4  system_gd32e50x.o(.data.SystemCoreClock)
-    count                                    0x20000040   Data           1  main.o(.bss.count)
-    flash_id                                 0x20000048   Data           4  main.o(.bss.flash_id)
-    i                                        0x2000004c   Data           2  main.o(.bss.i)
-    int_device_serial                        0x20000050   Data          12  main.o(.bss.int_device_serial)
-    is_successful                            0x2000005c   Data           1  main.o(.bss.is_successful)
-    rx_buffer                                0x2000005d   Data         256  main.o(.bss.rx_buffer)
-    tx_buffer                                0x2000015d   Data         256  main.o(.bss.tx_buffer)
-    __initial_sp                             0x20000660   Data           0  startup_gd32e50x_hd.o(STACK)
+    __aeabi_memcpy                           0x080001d9   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x080001d9   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x080001d9   Thumb Code     0  memcpya.o(.text)
+    __aeabi_uidiv                            0x080001fd   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x080001fd   Thumb Code    44  uidiv.o(.text)
+    __aeabi_uldivmod                         0x08000229   Thumb Code    98  uldiv.o(.text)
+    __I$use$fp                               0x0800028b   Thumb Code     0  iusefp.o(.text)
+    __aeabi_dadd                             0x0800028b   Thumb Code   322  dadd.o(.text)
+    __aeabi_dsub                             0x080003cd   Thumb Code     6  dadd.o(.text)
+    __aeabi_drsub                            0x080003d3   Thumb Code     6  dadd.o(.text)
+    __aeabi_dmul                             0x080003d9   Thumb Code   228  dmul.o(.text)
+    __aeabi_ddiv                             0x080004bd   Thumb Code   222  ddiv.o(.text)
+    __aeabi_d2ulz                            0x0800059b   Thumb Code    48  dfixul.o(.text)
+    __aeabi_cdrcmple                         0x080005cd   Thumb Code    48  cdrcmple.o(.text)
+    __scatterload                            0x080005fd   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x080005fd   Thumb Code     0  init.o(.text)
+    __aeabi_llsl                             0x08000621   Thumb Code    30  llshl.o(.text)
+    _ll_shift_l                              0x08000621   Thumb Code     0  llshl.o(.text)
+    __aeabi_llsr                             0x0800063f   Thumb Code    32  llushr.o(.text)
+    _ll_ushift_r                             0x0800063f   Thumb Code     0  llushr.o(.text)
+    __aeabi_lasr                             0x0800065f   Thumb Code    36  llsshr.o(.text)
+    _ll_sshift_r                             0x0800065f   Thumb Code     0  llsshr.o(.text)
+    _double_round                            0x08000683   Thumb Code    30  depilogue.o(.text)
+    _double_epilogue                         0x080006a1   Thumb Code   156  depilogue.o(.text)
+    BusFault_Handler                         0x0800073d   Thumb Code     4  gd32e50x_it.o(.text.BusFault_Handler)
+    DMA0_Channel3_IRQHandler                 0x08000741   Thumb Code    74  main.o(.text.DMA0_Channel3_IRQHandler)
+    DebugMon_Handler                         0x0800078d   Thumb Code     4  gd32e50x_it.o(.text.DebugMon_Handler)
+    HardFault_Handler                        0x08000791   Thumb Code     4  gd32e50x_it.o(.text.HardFault_Handler)
+    MemManage_Handler                        0x08000795   Thumb Code     4  gd32e50x_it.o(.text.MemManage_Handler)
+    NMI_Handler                              0x08000799   Thumb Code     4  gd32e50x_it.o(.text.NMI_Handler)
+    PendSV_Handler                           0x0800079d   Thumb Code     4  gd32e50x_it.o(.text.PendSV_Handler)
+    SVC_Handler                              0x080007a1   Thumb Code     4  gd32e50x_it.o(.text.SVC_Handler)
+    SysTick_Handler                          0x08000801   Thumb Code     8  gd32e50x_it.o(.text.SysTick_Handler)
+    SystemInit                               0x08000809   Thumb Code   236  system_gd32e50x.o(.text.SystemInit)
+    USART0_IRQHandler                        0x080008f5   Thumb Code   178  main.o(.text.USART0_IRQHandler)
+    UsageFault_Handler                       0x080009a9   Thumb Code     4  gd32e50x_it.o(.text.UsageFault_Handler)
+    delay_decrement                          0x080009f9   Thumb Code    34  systick.o(.text.delay_decrement)
+    dma_channel_disable                      0x08000a1d   Thumb Code    64  gd32e50x_dma.o(.text.dma_channel_disable)
+    dma_channel_enable                       0x08000a5d   Thumb Code    64  gd32e50x_dma.o(.text.dma_channel_enable)
+    dma_deinit                               0x08000a9d   Thumb Code   150  gd32e50x_dma.o(.text.dma_deinit)
+    dma_flag_get                             0x08000b35   Thumb Code    92  gd32e50x_dma.o(.text.dma_flag_get)
+    dma_init                                 0x08000b91   Thumb Code   360  gd32e50x_dma.o(.text.dma_init)
+    dma_interrupt_enable                     0x08000cf9   Thumb Code    74  gd32e50x_dma.o(.text.dma_interrupt_enable)
+    dma_interrupt_flag_clear                 0x08000d45   Thumb Code    70  gd32e50x_dma.o(.text.dma_interrupt_flag_clear)
+    dma_interrupt_flag_get                   0x08000d8d   Thumb Code   250  gd32e50x_dma.o(.text.dma_interrupt_flag_get)
+    dma_memory_address_config                0x08000e89   Thumb Code    70  gd32e50x_dma.o(.text.dma_memory_address_config)
+    dma_transfer_number_config               0x08000f15   Thumb Code    72  gd32e50x_dma.o(.text.dma_transfer_number_config)
+    dma_transfer_number_get                  0x08000f5d   Thumb Code    58  gd32e50x_dma.o(.text.dma_transfer_number_get)
+    gpio_init                                0x08000f99   Thumb Code   424  gd32e50x_gpio.o(.text.gpio_init)
+    main                                     0x08001141   Thumb Code   168  main.o(.text.main)
+    nvic_irq_enable                          0x080011e9   Thumb Code   318  gd32e50x_misc.o(.text.nvic_irq_enable)
+    nvic_priority_group_set                  0x08001329   Thumb Code    32  gd32e50x_misc.o(.text.nvic_priority_group_set)
+    nvic_vector_table_set                    0x08001349   Thumb Code    50  gd32e50x_misc.o(.text.nvic_vector_table_set)
+    rcu_clock_freq_get                       0x0800137d   Thumb Code   630  gd32e50x_rcu.o(.text.rcu_clock_freq_get)
+    rcu_periph_clock_enable                  0x080015f5   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_clock_enable)
+    rcu_periph_reset_disable                 0x08001625   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_reset_disable)
+    rcu_periph_reset_enable                  0x08001655   Thumb Code    48  gd32e50x_rcu.o(.text.rcu_periph_reset_enable)
+    systick_config                           0x080018b5   Thumb Code    60  systick.o(.text.systick_config)
+    uart_dma_init                            0x080018f1   Thumb Code   374  main.o(.text.uart_dma_init)
+    uprintf                                  0x08001ae9   Thumb Code    88  main.o(.text.uprintf)
+    usart_baudrate_set                       0x08001b41   Thumb Code   402  gd32e50x_usart.o(.text.usart_baudrate_set)
+    usart_data_receive                       0x08001cd5   Thumb Code    60  gd32e50x_usart.o(.text.usart_data_receive)
+    usart_deinit                             0x08001d11   Thumb Code   222  gd32e50x_usart.o(.text.usart_deinit)
+    usart_enable                             0x08001df1   Thumb Code    52  gd32e50x_usart.o(.text.usart_enable)
+    usart_hardware_flow_cts_config           0x08001e25   Thumb Code    46  gd32e50x_usart.o(.text.usart_hardware_flow_cts_config)
+    usart_hardware_flow_rts_config           0x08001e55   Thumb Code    46  gd32e50x_usart.o(.text.usart_hardware_flow_rts_config)
+    usart_interrupt_enable                   0x08001e85   Thumb Code    56  gd32e50x_usart.o(.text.usart_interrupt_enable)
+    usart_interrupt_flag_clear               0x08001ebd   Thumb Code    44  gd32e50x_usart.o(.text.usart_interrupt_flag_clear)
+    usart_interrupt_flag_get                 0x08001ee9   Thumb Code   110  gd32e50x_usart.o(.text.usart_interrupt_flag_get)
+    usart_parity_config                      0x08001f59   Thumb Code    96  gd32e50x_usart.o(.text.usart_parity_config)
+    usart_receive_config                     0x08001fb9   Thumb Code   106  gd32e50x_usart.o(.text.usart_receive_config)
+    usart_stop_bit_set                       0x08002025   Thumb Code    96  gd32e50x_usart.o(.text.usart_stop_bit_set)
+    usart_transmit_config                    0x08002085   Thumb Code   106  gd32e50x_usart.o(.text.usart_transmit_config)
+    usart_word_length_set                    0x080020f1   Thumb Code    96  gd32e50x_usart.o(.text.usart_word_length_set)
+    __0vsnprintf                             0x08002151   Thumb Code    40  printfa.o(i.__0vsnprintf)
+    __1vsnprintf                             0x08002151   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __2vsnprintf                             0x08002151   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __c89vsnprintf                           0x08002151   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    vsnprintf                                0x08002151   Thumb Code     0  printfa.o(i.__0vsnprintf)
+    __scatterload_copy                       0x0800217d   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x0800218b   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x0800218d   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    Region$$Table$$Base                      0x08002a8c   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002aac   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x20000000   Data           4  system_gd32e50x.o(.data.SystemCoreClock)
+    __initial_sp                             0x20000898   Data           0  startup_gd32e50x_hd.o(STACK)
 
 
 
@@ -3271,157 +3302,151 @@ Memory Map of the image
 
   Image Entry point : 0x080001a1
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002b58, Max: 0x00080000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00002ab8, Max: 0x00080000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002b14, Max: 0x00080000, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x08000000   0x08000000   0x000001a0   Data   RO         1981    RESET               startup_gd32e50x_hd.o
-    0x080001a0   0x080001a0   0x00000000   Code   RO         1988  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x080001a0   0x080001a0   0x00000004   Code   RO         2019    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x080001a4   0x080001a4   0x00000004   Code   RO         2022    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         2024    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         2026    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x080001a8   0x080001a8   0x00000008   Code   RO         2027    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080001b0   0x080001b0   0x00000000   Code   RO         2029    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
-    0x080001b0   0x080001b0   0x00000000   Code   RO         2031    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
-    0x080001b0   0x080001b0   0x00000004   Code   RO         2020    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x080001b4   0x080001b4   0x00000024   Code   RO         1982    .text               startup_gd32e50x_hd.o
-    0x080001d8   0x080001d8   0x0000002c   Code   RO         2034    .text               mc_w.l(uidiv.o)
-    0x08000204   0x08000204   0x00000062   Code   RO         2036    .text               mc_w.l(uldiv.o)
-    0x08000266   0x08000266   0x00000000   Code   RO         2038    .text               mc_w.l(iusefp.o)
-    0x08000266   0x08000266   0x0000014e   Code   RO         2039    .text               mf_w.l(dadd.o)
-    0x080003b4   0x080003b4   0x000000e4   Code   RO         2041    .text               mf_w.l(dmul.o)
-    0x08000498   0x08000498   0x000000de   Code   RO         2043    .text               mf_w.l(ddiv.o)
-    0x08000576   0x08000576   0x00000030   Code   RO         2045    .text               mf_w.l(dfixul.o)
-    0x080005a6   0x080005a6   0x00000002   PAD
-    0x080005a8   0x080005a8   0x00000030   Code   RO         2047    .text               mf_w.l(cdrcmple.o)
-    0x080005d8   0x080005d8   0x00000024   Code   RO         2049    .text               mc_w.l(init.o)
-    0x080005fc   0x080005fc   0x0000001e   Code   RO         2051    .text               mc_w.l(llshl.o)
-    0x0800061a   0x0800061a   0x00000020   Code   RO         2053    .text               mc_w.l(llushr.o)
-    0x0800063a   0x0800063a   0x00000024   Code   RO         2055    .text               mc_w.l(llsshr.o)
-    0x0800065e   0x0800065e   0x000000ba   Code   RO         2057    .text               mf_w.l(depilogue.o)
-    0x08000718   0x08000718   0x00000004   Code   RO           36    .text.BusFault_Handler  gd32e50x_it.o
-    0x0800071c   0x0800071c   0x00000004   Code   RO           42    .text.DebugMon_Handler  gd32e50x_it.o
-    0x08000720   0x08000720   0x00000004   Code   RO           32    .text.HardFault_Handler  gd32e50x_it.o
-    0x08000724   0x08000724   0x00000004   Code   RO           34    .text.MemManage_Handler  gd32e50x_it.o
-    0x08000728   0x08000728   0x00000004   Code   RO           30    .text.NMI_Handler   gd32e50x_it.o
-    0x0800072c   0x0800072c   0x00000004   Code   RO           44    .text.PendSV_Handler  gd32e50x_it.o
-    0x08000730   0x08000730   0x00000004   Code   RO           40    .text.SVC_Handler   gd32e50x_it.o
-    0x08000734   0x08000734   0x0000005a   Code   RO           58    .text.SysTick_Config  systick.o
-    0x0800078e   0x0800078e   0x00000002   PAD
-    0x08000790   0x08000790   0x00000008   Code   RO           46    .text.SysTick_Handler  gd32e50x_it.o
-    0x08000798   0x08000798   0x000000ec   Code   RO           75    .text.SystemInit    system_gd32e50x.o
-    0x08000884   0x08000884   0x00000004   Code   RO           38    .text.UsageFault_Handler  gd32e50x_it.o
-    0x08000888   0x08000888   0x0000004a   Code   RO           60    .text.__NVIC_SetPriority  systick.o
-    0x080008d2   0x080008d2   0x00000002   PAD
-    0x080008d4   0x080008d4   0x0000002c   Code   RO           62    .text.delay_1ms     systick.o
-    0x08000900   0x08000900   0x00000022   Code   RO           64    .text.delay_decrement  systick.o
-    0x08000922   0x08000922   0x00000002   PAD
-    0x08000924   0x08000924   0x0000003e   Code   RO           12    .text.fputc         main.o
-    0x08000962   0x08000962   0x00000002   PAD
-    0x08000964   0x08000964   0x000000c8   Code   RO         1921    .text.gd_eval_com_init  gd32e503v_eval.o
-    0x08000a2c   0x08000a2c   0x0000006c   Code   RO         1909    .text.gd_eval_led_init  gd32e503v_eval.o
-    0x08000a98   0x08000a98   0x0000002c   Code   RO         1913    .text.gd_eval_led_off  gd32e503v_eval.o
-    0x08000ac4   0x08000ac4   0x0000002c   Code   RO         1911    .text.gd_eval_led_on  gd32e503v_eval.o
-    0x08000af0   0x08000af0   0x0000002e   Code   RO            6    .text.get_chip_serial_num  main.o
-    0x08000b1e   0x08000b1e   0x00000002   PAD
-    0x08000b20   0x08000b20   0x00000018   Code   RO          675    .text.gpio_bit_reset  gd32e50x_gpio.o
-    0x08000b38   0x08000b38   0x00000018   Code   RO          673    .text.gpio_bit_set  gd32e50x_gpio.o
-    0x08000b50   0x08000b50   0x000001a8   Code   RO          671    .text.gpio_init     gd32e50x_gpio.o
-    0x08000cf8   0x08000cf8   0x000002de   Code   RO            2    .text.main          main.o
-    0x08000fd6   0x08000fd6   0x00000002   PAD
-    0x08000fd8   0x08000fd8   0x0000005e   Code   RO            8    .text.memory_compare  main.o
-    0x08001036   0x08001036   0x00000002   PAD
-    0x08001038   0x08001038   0x00000032   Code   RO          923    .text.nvic_vector_table_set  gd32e50x_misc.o
-    0x0800106a   0x0800106a   0x00000002   PAD
-    0x0800106c   0x0800106c   0x00000276   Code   RO         1061    .text.rcu_clock_freq_get  gd32e50x_rcu.o
-    0x080012e2   0x080012e2   0x00000002   PAD
-    0x080012e4   0x080012e4   0x00000030   Code   RO          991    .text.rcu_periph_clock_enable  gd32e50x_rcu.o
-    0x08001314   0x08001314   0x00000030   Code   RO         1001    .text.rcu_periph_reset_disable  gd32e50x_rcu.o
-    0x08001344   0x08001344   0x00000030   Code   RO          999    .text.rcu_periph_reset_enable  gd32e50x_rcu.o
-    0x08001374   0x08001374   0x00000026   Code   RO         1427    .text.spi_crc_polynomial_set  gd32e50x_spi.o
-    0x0800139a   0x0800139a   0x00000002   PAD
-    0x0800139c   0x0800139c   0x00000016   Code   RO         1393    .text.spi_enable    gd32e50x_spi.o
-    0x080013b2   0x080013b2   0x00000002   PAD
-    0x080013b4   0x080013b4   0x00000090   Code   RO         1962    .text.spi_flash_buffer_read  gd25qxx.o
-    0x08001444   0x08001444   0x000001a8   Code   RO         1960    .text.spi_flash_buffer_write  gd25qxx.o
-    0x080015ec   0x080015ec   0x000000a4   Code   RO         1946    .text.spi_flash_init  gd25qxx.o
-    0x08001690   0x08001690   0x0000009a   Code   RO         1958    .text.spi_flash_page_write  gd25qxx.o
-    0x0800172a   0x0800172a   0x00000002   PAD
-    0x0800172c   0x0800172c   0x00000062   Code   RO         1964    .text.spi_flash_read_id  gd25qxx.o
-    0x0800178e   0x0800178e   0x00000002   PAD
-    0x08001790   0x08001790   0x0000005e   Code   RO         1948    .text.spi_flash_sector_erase  gd25qxx.o
-    0x080017ee   0x080017ee   0x00000002   PAD
-    0x080017f0   0x080017f0   0x0000005e   Code   RO         1952    .text.spi_flash_send_byte  gd25qxx.o
-    0x0800184e   0x0800184e   0x00000002   PAD
-    0x08001850   0x08001850   0x0000004c   Code   RO         1954    .text.spi_flash_wait_for_write_end  gd25qxx.o
-    0x0800189c   0x0800189c   0x0000002c   Code   RO         1950    .text.spi_flash_write_enable  gd25qxx.o
-    0x080018c8   0x080018c8   0x00000012   Code   RO         1421    .text.spi_i2s_data_receive  gd32e50x_spi.o
-    0x080018da   0x080018da   0x00000002   PAD
-    0x080018dc   0x080018dc   0x0000001c   Code   RO         1419    .text.spi_i2s_data_transmit  gd32e50x_spi.o
-    0x080018f8   0x080018f8   0x00000032   Code   RO         1469    .text.spi_i2s_flag_get  gd32e50x_spi.o
-    0x0800192a   0x0800192a   0x00000002   PAD
-    0x0800192c   0x0800192c   0x0000007a   Code   RO         1391    .text.spi_init      gd32e50x_spi.o
-    0x080019a6   0x080019a6   0x00000002   PAD
-    0x080019a8   0x080019a8   0x00000192   Code   RO           81    .text.system_clock_180m_hxtal  system_gd32e50x.o
-    0x08001b3a   0x08001b3a   0x00000002   PAD
-    0x08001b3c   0x08001b3c   0x00000008   Code   RO           77    .text.system_clock_config  system_gd32e50x.o
-    0x08001b44   0x08001b44   0x0000003c   Code   RO           56    .text.systick_config  systick.o
-    0x08001b80   0x08001b80   0x00000040   Code   RO            4    .text.test_status_led_init  main.o
-    0x08001bc0   0x08001bc0   0x00000060   Code   RO           10    .text.turn_on_led   main.o
-    0x08001c20   0x08001c20   0x00000192   Code   RO         1658    .text.usart_baudrate_set  gd32e50x_usart.o
-    0x08001db2   0x08001db2   0x00000002   PAD
-    0x08001db4   0x08001db4   0x00000040   Code   RO         1684    .text.usart_data_transmit  gd32e50x_usart.o
-    0x08001df4   0x08001df4   0x000000de   Code   RO         1656    .text.usart_deinit  gd32e50x_usart.o
-    0x08001ed2   0x08001ed2   0x00000002   PAD
-    0x08001ed4   0x08001ed4   0x00000034   Code   RO         1666    .text.usart_enable  gd32e50x_usart.o
-    0x08001f08   0x08001f08   0x00000048   Code   RO         1756    .text.usart_flag_get  gd32e50x_usart.o
-    0x08001f50   0x08001f50   0x0000006a   Code   RO         1672    .text.usart_receive_config  gd32e50x_usart.o
-    0x08001fba   0x08001fba   0x00000002   PAD
-    0x08001fbc   0x08001fbc   0x0000006a   Code   RO         1670    .text.usart_transmit_config  gd32e50x_usart.o
-    0x08002026   0x08002026   0x00000002   PAD
-    0x08002028   0x08002028   0x00000020   Code   RO         1992    i.__0printf         mc_w.l(printfa.o)
-    0x08002048   0x08002048   0x0000000e   Code   RO         2061    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08002056   0x08002056   0x00000002   Code   RO         2062    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08002058   0x08002058   0x0000000e   Code   RO         2063    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08002066   0x08002066   0x00000002   PAD
-    0x08002068   0x08002068   0x00000184   Code   RO         1999    i._fp_digits        mc_w.l(printfa.o)
-    0x080021ec   0x080021ec   0x000006dc   Code   RO         2000    i._printf_core      mc_w.l(printfa.o)
-    0x080028c8   0x080028c8   0x00000024   Code   RO         2001    i._printf_post_padding  mc_w.l(printfa.o)
-    0x080028ec   0x080028ec   0x0000002e   Code   RO         2002    i._printf_pre_padding  mc_w.l(printfa.o)
-    0x0800291a   0x0800291a   0x000001d7   Data   RO           17    .rodata.str1.1      main.o
-    0x08002af1   0x08002af1   0x00000003   PAD
-    0x08002af4   0x08002af4   0x00000020   Data   RO         2060    Region$$Table       anon$$obj.o
-
-
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002b18, Size: 0x00000660, Max: 0x00020000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002aac, Max: 0x00080000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08002b18   0x00000004   Data   RW         2033    .data               mc_w.l(stdout.o)
-    0x20000004   0x08002b1c   0x00000002   Data   RW         1934    .data.COM_CLK       gd32e503v_eval.o
-    0x20000006   0x08002b1e   0x00000002   Data   RW         1933    .data.COM_GPIO_CLK  gd32e503v_eval.o
-    0x20000008   0x08002b20   0x00000004   Data   RW         1935    .data.COM_GPIO_PORT  gd32e503v_eval.o
-    0x2000000c   0x08002b24   0x00000004   Data   RW         1937    .data.COM_RX_PIN    gd32e503v_eval.o
-    0x20000010   0x08002b28   0x00000004   Data   RW         1936    .data.COM_TX_PIN    gd32e503v_eval.o
-    0x20000014   0x08002b2c   0x00000008   Data   RW         1923    .data.GPIO_CLK      gd32e503v_eval.o
-    0x2000001c   0x08002b34   0x00000010   Data   RW         1925    .data.GPIO_PIN      gd32e503v_eval.o
-    0x2000002c   0x08002b44   0x00000010   Data   RW         1924    .data.GPIO_PORT     gd32e503v_eval.o
-    0x2000003c   0x08002b54   0x00000004   Data   RW           83    .data.SystemCoreClock  system_gd32e50x.o
-    0x20000040        -       0x00000001   Zero   RW           21    .bss.count          main.o
-    0x20000041   0x08002b58   0x00000003   PAD
-    0x20000044        -       0x00000004   Zero   RW           66    .bss.delay          systick.o
-    0x20000048        -       0x00000004   Zero   RW           14    .bss.flash_id       main.o
-    0x2000004c        -       0x00000002   Zero   RW           15    .bss.i              main.o
-    0x2000004e   0x08002b58   0x00000002   PAD
-    0x20000050        -       0x0000000c   Zero   RW           18    .bss.int_device_serial  main.o
-    0x2000005c        -       0x00000001   Zero   RW           16    .bss.is_successful  main.o
-    0x2000005d        -       0x00000100   Zero   RW           20    .bss.rx_buffer      main.o
-    0x2000015d        -       0x00000100   Zero   RW           19    .bss.tx_buffer      main.o
-    0x2000025d   0x08002b58   0x00000003   PAD
-    0x20000260        -       0x00000400   Zero   RW         1979    STACK               startup_gd32e50x_hd.o
+    0x08000000   0x08000000   0x000001a0   Data   RO         1982    RESET               startup_gd32e50x_hd.o
+    0x080001a0   0x080001a0   0x00000000   Code   RO         1989  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x080001a0   0x080001a0   0x00000004   Code   RO         2024    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x080001a4   0x080001a4   0x00000004   Code   RO         2027    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         2029    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         2031    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x080001a8   0x080001a8   0x00000008   Code   RO         2032    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080001b0   0x080001b0   0x00000000   Code   RO         2034    .ARM.Collect$$$$0000000D  mc_w.l(entry10a.o)
+    0x080001b0   0x080001b0   0x00000000   Code   RO         2036    .ARM.Collect$$$$0000000F  mc_w.l(entry11a.o)
+    0x080001b0   0x080001b0   0x00000004   Code   RO         2025    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080001b4   0x080001b4   0x00000024   Code   RO         1983    .text               startup_gd32e50x_hd.o
+    0x080001d8   0x080001d8   0x00000024   Code   RO         1992    .text               mc_w.l(memcpya.o)
+    0x080001fc   0x080001fc   0x0000002c   Code   RO         2043    .text               mc_w.l(uidiv.o)
+    0x08000228   0x08000228   0x00000062   Code   RO         2045    .text               mc_w.l(uldiv.o)
+    0x0800028a   0x0800028a   0x00000000   Code   RO         2047    .text               mc_w.l(iusefp.o)
+    0x0800028a   0x0800028a   0x0000014e   Code   RO         2048    .text               mf_w.l(dadd.o)
+    0x080003d8   0x080003d8   0x000000e4   Code   RO         2050    .text               mf_w.l(dmul.o)
+    0x080004bc   0x080004bc   0x000000de   Code   RO         2052    .text               mf_w.l(ddiv.o)
+    0x0800059a   0x0800059a   0x00000030   Code   RO         2054    .text               mf_w.l(dfixul.o)
+    0x080005ca   0x080005ca   0x00000002   PAD
+    0x080005cc   0x080005cc   0x00000030   Code   RO         2056    .text               mf_w.l(cdrcmple.o)
+    0x080005fc   0x080005fc   0x00000024   Code   RO         2058    .text               mc_w.l(init.o)
+    0x08000620   0x08000620   0x0000001e   Code   RO         2061    .text               mc_w.l(llshl.o)
+    0x0800063e   0x0800063e   0x00000020   Code   RO         2063    .text               mc_w.l(llushr.o)
+    0x0800065e   0x0800065e   0x00000024   Code   RO         2065    .text               mc_w.l(llsshr.o)
+    0x08000682   0x08000682   0x000000ba   Code   RO         2068    .text               mf_w.l(depilogue.o)
+    0x0800073c   0x0800073c   0x00000004   Code   RO           37    .text.BusFault_Handler  gd32e50x_it.o
+    0x08000740   0x08000740   0x0000004a   Code   RO           12    .text.DMA0_Channel3_IRQHandler  main.o
+    0x0800078a   0x0800078a   0x00000002   PAD
+    0x0800078c   0x0800078c   0x00000004   Code   RO           43    .text.DebugMon_Handler  gd32e50x_it.o
+    0x08000790   0x08000790   0x00000004   Code   RO           33    .text.HardFault_Handler  gd32e50x_it.o
+    0x08000794   0x08000794   0x00000004   Code   RO           35    .text.MemManage_Handler  gd32e50x_it.o
+    0x08000798   0x08000798   0x00000004   Code   RO           31    .text.NMI_Handler   gd32e50x_it.o
+    0x0800079c   0x0800079c   0x00000004   Code   RO           45    .text.PendSV_Handler  gd32e50x_it.o
+    0x080007a0   0x080007a0   0x00000004   Code   RO           41    .text.SVC_Handler   gd32e50x_it.o
+    0x080007a4   0x080007a4   0x0000005a   Code   RO           59    .text.SysTick_Config  systick.o
+    0x080007fe   0x080007fe   0x00000002   PAD
+    0x08000800   0x08000800   0x00000008   Code   RO           47    .text.SysTick_Handler  gd32e50x_it.o
+    0x08000808   0x08000808   0x000000ec   Code   RO           76    .text.SystemInit    system_gd32e50x.o
+    0x080008f4   0x080008f4   0x000000b2   Code   RO           14    .text.USART0_IRQHandler  main.o
+    0x080009a6   0x080009a6   0x00000002   PAD
+    0x080009a8   0x080009a8   0x00000004   Code   RO           39    .text.UsageFault_Handler  gd32e50x_it.o
+    0x080009ac   0x080009ac   0x0000004a   Code   RO           61    .text.__NVIC_SetPriority  systick.o
+    0x080009f6   0x080009f6   0x00000002   PAD
+    0x080009f8   0x080009f8   0x00000022   Code   RO           65    .text.delay_decrement  systick.o
+    0x08000a1a   0x08000a1a   0x00000002   PAD
+    0x08000a1c   0x08000a1c   0x00000040   Code   RO          435    .text.dma_channel_disable  gd32e50x_dma.o
+    0x08000a5c   0x08000a5c   0x00000040   Code   RO          433    .text.dma_channel_enable  gd32e50x_dma.o
+    0x08000a9c   0x08000a9c   0x00000096   Code   RO          417    .text.dma_deinit    gd32e50x_dma.o
+    0x08000b32   0x08000b32   0x00000002   PAD
+    0x08000b34   0x08000b34   0x0000005c   Code   RO          461    .text.dma_flag_get  gd32e50x_dma.o
+    0x08000b90   0x08000b90   0x00000168   Code   RO          423    .text.dma_init      gd32e50x_dma.o
+    0x08000cf8   0x08000cf8   0x0000004a   Code   RO          465    .text.dma_interrupt_enable  gd32e50x_dma.o
+    0x08000d42   0x08000d42   0x00000002   PAD
+    0x08000d44   0x08000d44   0x00000046   Code   RO          471    .text.dma_interrupt_flag_clear  gd32e50x_dma.o
+    0x08000d8a   0x08000d8a   0x00000002   PAD
+    0x08000d8c   0x08000d8c   0x000000fa   Code   RO          469    .text.dma_interrupt_flag_get  gd32e50x_dma.o
+    0x08000e86   0x08000e86   0x00000002   PAD
+    0x08000e88   0x08000e88   0x00000046   Code   RO          439    .text.dma_memory_address_config  gd32e50x_dma.o
+    0x08000ece   0x08000ece   0x00000002   PAD
+    0x08000ed0   0x08000ed0   0x00000042   Code   RO          419    .text.dma_periph_and_channel_check  gd32e50x_dma.o
+    0x08000f12   0x08000f12   0x00000002   PAD
+    0x08000f14   0x08000f14   0x00000048   Code   RO          441    .text.dma_transfer_number_config  gd32e50x_dma.o
+    0x08000f5c   0x08000f5c   0x0000003a   Code   RO          443    .text.dma_transfer_number_get  gd32e50x_dma.o
+    0x08000f96   0x08000f96   0x00000002   PAD
+    0x08000f98   0x08000f98   0x000001a8   Code   RO          672    .text.gpio_init     gd32e50x_gpio.o
+    0x08001140   0x08001140   0x000000a8   Code   RO           10    .text.main          main.o
+    0x080011e8   0x080011e8   0x0000013e   Code   RO          914    .text.nvic_irq_enable  gd32e50x_misc.o
+    0x08001326   0x08001326   0x00000002   PAD
+    0x08001328   0x08001328   0x00000020   Code   RO          912    .text.nvic_priority_group_set  gd32e50x_misc.o
+    0x08001348   0x08001348   0x00000032   Code   RO          924    .text.nvic_vector_table_set  gd32e50x_misc.o
+    0x0800137a   0x0800137a   0x00000002   PAD
+    0x0800137c   0x0800137c   0x00000276   Code   RO         1062    .text.rcu_clock_freq_get  gd32e50x_rcu.o
+    0x080015f2   0x080015f2   0x00000002   PAD
+    0x080015f4   0x080015f4   0x00000030   Code   RO          992    .text.rcu_periph_clock_enable  gd32e50x_rcu.o
+    0x08001624   0x08001624   0x00000030   Code   RO         1002    .text.rcu_periph_reset_disable  gd32e50x_rcu.o
+    0x08001654   0x08001654   0x00000030   Code   RO         1000    .text.rcu_periph_reset_enable  gd32e50x_rcu.o
+    0x08001684   0x08001684   0x00000092   Code   RO            4    .text.ring_write    main.o
+    0x08001716   0x08001716   0x00000002   PAD
+    0x08001718   0x08001718   0x00000192   Code   RO           82    .text.system_clock_180m_hxtal  system_gd32e50x.o
+    0x080018aa   0x080018aa   0x00000002   PAD
+    0x080018ac   0x080018ac   0x00000008   Code   RO           78    .text.system_clock_config  system_gd32e50x.o
+    0x080018b4   0x080018b4   0x0000003c   Code   RO           57    .text.systick_config  systick.o
+    0x080018f0   0x080018f0   0x00000176   Code   RO            8    .text.uart_dma_init  main.o
+    0x08001a66   0x08001a66   0x00000002   PAD
+    0x08001a68   0x08001a68   0x00000080   Code   RO            6    .text.uart_start_tx_dma  main.o
+    0x08001ae8   0x08001ae8   0x00000058   Code   RO            2    .text.uprintf       main.o
+    0x08001b40   0x08001b40   0x00000192   Code   RO         1659    .text.usart_baudrate_set  gd32e50x_usart.o
+    0x08001cd2   0x08001cd2   0x00000002   PAD
+    0x08001cd4   0x08001cd4   0x0000003c   Code   RO         1687    .text.usart_data_receive  gd32e50x_usart.o
+    0x08001d10   0x08001d10   0x000000de   Code   RO         1657    .text.usart_deinit  gd32e50x_usart.o
+    0x08001dee   0x08001dee   0x00000002   PAD
+    0x08001df0   0x08001df0   0x00000034   Code   RO         1667    .text.usart_enable  gd32e50x_usart.o
+    0x08001e24   0x08001e24   0x0000002e   Code   RO         1739    .text.usart_hardware_flow_cts_config  gd32e50x_usart.o
+    0x08001e52   0x08001e52   0x00000002   PAD
+    0x08001e54   0x08001e54   0x0000002e   Code   RO         1737    .text.usart_hardware_flow_rts_config  gd32e50x_usart.o
+    0x08001e82   0x08001e82   0x00000002   PAD
+    0x08001e84   0x08001e84   0x00000038   Code   RO         1761    .text.usart_interrupt_enable  gd32e50x_usart.o
+    0x08001ebc   0x08001ebc   0x0000002c   Code   RO         1767    .text.usart_interrupt_flag_clear  gd32e50x_usart.o
+    0x08001ee8   0x08001ee8   0x0000006e   Code   RO         1765    .text.usart_interrupt_flag_get  gd32e50x_usart.o
+    0x08001f56   0x08001f56   0x00000002   PAD
+    0x08001f58   0x08001f58   0x00000060   Code   RO         1661    .text.usart_parity_config  gd32e50x_usart.o
+    0x08001fb8   0x08001fb8   0x0000006a   Code   RO         1673    .text.usart_receive_config  gd32e50x_usart.o
+    0x08002022   0x08002022   0x00000002   PAD
+    0x08002024   0x08002024   0x00000060   Code   RO         1665    .text.usart_stop_bit_set  gd32e50x_usart.o
+    0x08002084   0x08002084   0x0000006a   Code   RO         1671    .text.usart_transmit_config  gd32e50x_usart.o
+    0x080020ee   0x080020ee   0x00000002   PAD
+    0x080020f0   0x080020f0   0x00000060   Code   RO         1663    .text.usart_word_length_set  gd32e50x_usart.o
+    0x08002150   0x08002150   0x0000002c   Code   RO         2002    i.__0vsnprintf      mc_w.l(printfa.o)
+    0x0800217c   0x0800217c   0x0000000e   Code   RO         2072    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x0800218a   0x0800218a   0x00000002   Code   RO         2073    i.__scatterload_null  mc_w.l(handlers.o)
+    0x0800218c   0x0800218c   0x0000000e   Code   RO         2074    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x0800219a   0x0800219a   0x00000002   PAD
+    0x0800219c   0x0800219c   0x00000184   Code   RO         2004    i._fp_digits        mc_w.l(printfa.o)
+    0x08002320   0x08002320   0x000006dc   Code   RO         2005    i._printf_core      mc_w.l(printfa.o)
+    0x080029fc   0x080029fc   0x00000024   Code   RO         2006    i._printf_post_padding  mc_w.l(printfa.o)
+    0x08002a20   0x08002a20   0x0000002e   Code   RO         2007    i._printf_pre_padding  mc_w.l(printfa.o)
+    0x08002a4e   0x08002a4e   0x00000016   Code   RO         2008    i._snputc           mc_w.l(printfa.o)
+    0x08002a64   0x08002a64   0x00000026   Data   RO           19    .rodata.str1.1      main.o
+    0x08002a8a   0x08002a8a   0x00000002   PAD
+    0x08002a8c   0x08002a8c   0x00000020   Data   RO         2071    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002ab0, Size: 0x00000898, Max: 0x00020000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x08002ab0   0x00000004   Data   RW           84    .data.SystemCoreClock  system_gd32e50x.o
+    0x20000004   0x08002ab4   0x00000004   PAD
+    0x20000008        -       0x00000004   Zero   RW           67    .bss.delay          systick.o
+    0x2000000c        -       0x00000100   Zero   RW           18    .bss.rx_dma_buf     main.o
+    0x2000010c        -       0x00000001   Zero   RW           20    .bss.rx_frame_done  main.o
+    0x2000010d   0x08002ab4   0x00000001   PAD
+    0x2000010e        -       0x00000002   Zero   RW           21    .bss.rx_len         main.o
+    0x20000110        -       0x00000100   Zero   RW           22    .bss.rx_user_buf    main.o
+    0x20000210        -       0x00000204   Zero   RW           17    .bss.tx_ring        main.o
+    0x20000414        -       0x00000080   Zero   RW           16    .bss.uprintf.tmp    main.o
+    0x20000494   0x08002ab4   0x00000004   PAD
+    0x20000498        -       0x00000400   Zero   RW         1980    STACK               startup_gd32e50x_hd.o
 
 
 ==============================================================================
@@ -3431,23 +3456,21 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1292          0          0          0          0       4759   gd25qxx.o
-       396          0          0         56          0       4405   gd32e503v_eval.o
-       472          0          0          0          0       6220   gd32e50x_gpio.o
+      1390          0          0          0          0       6904   gd32e50x_dma.o
+       424          0          0          0          0       6227   gd32e50x_gpio.o
         40          0          0          0          0       1064   gd32e50x_it.o
-        50          0          0          0          0       6110   gd32e50x_misc.o
-       774          6          0          0          0      12164   gd32e50x_rcu.o
-       278          0          0          0          0       8807   gd32e50x_spi.o
-      1024          0          0          0          0      18302   gd32e50x_usart.o
-      1096          4        471          0        532       3072   main.o
+       400          0          0          0          0       6117   gd32e50x_misc.o
+       774          6          0          0          0      12171   gd32e50x_rcu.o
+      1538          0          0          0          0      18309   gd32e50x_usart.o
+      1156          0         38          0       1159       6750   main.o
         36          8        416          0       1024       1024   startup_gd32e50x_hd.o
-       646          0          0          4          0       3304   system_gd32e50x.o
-       302          0          0          0          4       4973   systick.o
+       646          0          0          4          0       3311   system_gd32e50x.o
+       258          0          0          0          4       4980   systick.o
 
     ----------------------------------------------------------------------
-      6452         18        922         60       1568      74204   Object Totals
+      6712         14        488          4       2196      66857   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        46          0          3          0          8          0   (incl. Padding)
+        50          0          2          0          9          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3467,8 +3490,8 @@ Image component sizes
         30          0          0          0          0         68   llshl.o
         36          0          0          0          0         68   llsshr.o
         32          0          0          0          0         68   llushr.o
-      2258         90          0          0          0        452   printfa.o
-         0          0          0          4          0          0   stdout.o
+        36          0          0          0          0         68   memcpya.o
+      2292         84          0          0          0        516   printfa.o
         44          0          0          0          0         80   uidiv.o
         98          0          0          0          0         92   uldiv.o
         48          0          0          0          0         68   cdrcmple.o
@@ -3479,18 +3502,18 @@ Image component sizes
        228          0          0          0          0         96   dmul.o
 
     ----------------------------------------------------------------------
-      3654        106          0          4          0       1552   Library Totals
+      3724        100          0          0          0       1684   Library Totals
          4          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-      2584        106          0          4          0        896   mc_w.l
+      2654        100          0          0          0       1028   mc_w.l
       1066          0          0          0          0        656   mf_w.l
 
     ----------------------------------------------------------------------
-      3654        106          0          4          0       1552   Library Totals
+      3724        100          0          0          0       1684   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -3499,15 +3522,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     10106        124        922         64       1568      75020   Grand Totals
-     10106        124        922         64       1568      75020   ELF Image Totals
-     10106        124        922         64          0          0   ROM Totals
+     10436        114        488          4       2196      67733   Grand Totals
+     10436        114        488          4       2196      67733   ELF Image Totals
+     10436        114        488          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                11028 (  10.77kB)
-    Total RW  Size (RW Data + ZI Data)              1632 (   1.59kB)
-    Total ROM Size (Code + RO Data + RW Data)      11092 (  10.83kB)
+    Total RO  Size (Code + RO Data)                10924 (  10.67kB)
+    Total RW  Size (RW Data + ZI Data)              2200 (   2.15kB)
+    Total ROM Size (Code + RO Data + RW Data)      10928 (  10.67kB)
 
 ==============================================================================
 

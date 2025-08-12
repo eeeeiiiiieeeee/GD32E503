@@ -32,34 +32,21 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 OF SUCH DAMAGE.
 */
 
+
+
 #include <stdio.h>
+#include <stdarg.h>
+#include <string.h>
 #include "gd32e50x.h"
 #include "systick.h"
 #include "gd25qxx.h"
 #include "gd32e503v_eval.h"
 
-#define BUFFER_SIZE                    256
-#define TX_BUFFER_SIZE                 BUFFER_SIZE
-#define RX_BUFFER_SIZE                 BUFFER_SIZE
 
-#define  VERSION_ID                    "1.0.0"
-#define  SFLASH_ID                     0xC84015
-#define  FLASH_WRITE_ADDRESS           0x000000
-#define  FLASH_READ_ADDRESS            FLASH_WRITE_ADDRESS
 
-uint32_t int_device_serial[3];
-uint8_t  count;
-uint8_t  tx_buffer[TX_BUFFER_SIZE];
-uint8_t  rx_buffer[TX_BUFFER_SIZE];
-uint32_t flash_id = 0;
-uint16_t i = 0;
-uint8_t  is_successful = 0;
+//uint8_t txbuffer1[] = &quot;\n\rUSART DMA transmit example\n\r&quot;
 
-static void get_chip_serial_num(void);
-void test_status_led_init(void);
-static void turn_on_led(uint8_t led_num);
-ErrStatus memory_compare(uint8_t* src,uint8_t* dst,uint16_t length);
-int fputc(int ch,FILE *f);
+//int fputc(int ch,FILE *f);
 
 /*!
     \brief      main function
@@ -67,190 +54,258 @@ int fputc(int ch,FILE *f);
     \param[out] none
     \retval     none
 */
+
+//void UART0_Init_Test(){
+//	
+//    gd_eval_com_init(EVAL_COM0);
+//}
+
+
+
+//uint8_t txbuffer1 []={1,2,3,4,5,6,7,7,7,7,7,7};
+//#define ARRAYNUM(arr_nanme)      (uint32_t)(sizeof(arr_nanme) / sizeof(*(arr_nanme)))
+
+// void DMA0_Init_Test(){
+
+//     /*DMA初始化*/
+//     dma_parameter_struct dma_init_struct;
+//     // 时钟开启
+//     rcu_periph_clock_enable(RCU_DMA0);
+//     dma_deinit(DMA0, DMA_CH3);//dma寄存器初始化
+//     dma_init_struct.direction = DMA_MEMORY_TO_PERIPHERAL;//传输模式，存储到外设（发送）
+//     dma_init_struct.memory_addr = (uint32_t)txbuffer1;//dma内存地址
+//     dma_init_struct.memory_inc = DMA_MEMORY_INCREASE_ENABLE; //内存地址增量模式
+//     dma_init_struct.memory_width = DMA_MEMORY_WIDTH_8BIT;//dma外设宽度8位
+//     dma_init_struct.number = ARRAYNUM(txbuffer1)-1; //长度
+//     dma_init_struct.periph_addr =((uint32_t)(&USART_DATA(USART0)));//外设基地址( (uint32_t)USART_DATA(USART0) )
+//     dma_init_struct.periph_inc = DMA_PERIPH_INCREASE_DISABLE;//外设地址增量禁用
+//     dma_init_struct.periph_width = DMA_PERIPHERAL_WIDTH_8BIT;
+//     dma_init_struct.priority = DMA_PRIORITY_HIGH; //优先级高
+//     dma_init(DMA0, DMA_CH3 , &dma_init_struct);
+//	 
+//	 
+//		
+
+//     /* configure DMA mode */
+//     dma_circulation_disable(DMA0, DMA_CH3);//循环模式禁用
+//     dma_memory_to_memory_disable(DMA0, DMA_CH3);//通道3   USART0_TX
+//		 
+//		 
+//		 
+//	 
+//	 
+//		
+//	 
+//		dma_channel_enable(DMA0, DMA_CH3);
+//		usart_dma_transmit_config(USART0, USART_TRANSMIT_DMA_ENABLE);
+//		//dma_channel_enable(DMA0, DMA_CH3);
+// }
+
+#define UART_TX_BUF_SIZE   512          // 发送环形缓冲区大小
+#define UART_RX_BUF_SIZE   256          // 单次最大接收帧长度
+
+typedef struct{
+    uint8_t  buf[UART_TX_BUF_SIZE];
+    volatile uint16_t head;            // 写指针
+    volatile uint16_t tail;            // 读指针
+}RingBuffer_t;
+
+static RingBuffer_t tx_ring;
+static uint8_t  rx_dma_buf[UART_RX_BUF_SIZE];
+static uint8_t  rx_user_buf[UART_RX_BUF_SIZE];
+static volatile uint16_t rx_len = 0;   // 最新一帧长度
+static volatile uint8_t  rx_frame_done = 0;
+
+
+/* 把数据写进环形缓冲区，返回实际写入字节数 */
+static uint16_t ring_write(uint8_t *src, uint16_t len)
+{
+    uint16_t space, cnt;
+    uint16_t tail = tx_ring.tail;
+    space = UART_TX_BUF_SIZE - (tx_ring.head - tail);
+    if(len > space) len = space;
+    cnt = len;
+    while(cnt--)
+    {
+        tx_ring.buf[tx_ring.head & (UART_TX_BUF_SIZE-1)] = *src++;
+        tx_ring.head++;
+    }
+    return len;
+}
+
+/* 启动一次 DMA 发送：从 tail 开始搬 head-tail 字节 */
+static void uart_start_tx_dma(void)
+{
+    if(dma_flag_get(DMA0, DMA_CH3, DMA_FLAG_G))
+        return;                 // 正在跑，等它自己完成
+    uint16_t len = tx_ring.head - tx_ring.tail;
+    if(len == 0) return;
+
+    dma_channel_disable(DMA0, DMA_CH3);
+    dma_memory_address_config(DMA0, DMA_CH3,
+        (uint32_t)&tx_ring.buf[tx_ring.tail & (UART_TX_BUF_SIZE-1)]);
+    dma_transfer_number_config(DMA0, DMA_CH3, len);
+    dma_channel_enable(DMA0, DMA_CH3);
+}
+
+/* 类似 printf 的接口，非阻塞，立即返回 */
+void uprintf(const char *fmt, ...)
+{
+    static uint8_t tmp[128];
+    va_list ap;
+    va_start(ap, fmt);
+    int len = vsnprintf((char *)tmp, sizeof(tmp), fmt, ap);
+    va_end(ap);
+
+    if(len > 0)
+    {
+        ring_write(tmp, len);
+
+        /* 强制启动（如果 DMA 正在运行，先停再启亦可） */
+        uart_start_tx_dma();   // 让 DMA 把当前缓冲区一次性搬完
+    }
+}
+void uart_dma_init(void)
+{
+    /* 时钟 */
+    rcu_periph_clock_enable(RCU_USART0);
+    rcu_periph_clock_enable(RCU_GPIOA);
+    rcu_periph_clock_enable(RCU_DMA0);
+
+    /* GPIO */
+    gpio_init(GPIOA, GPIO_MODE_AF_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_9);   // TX
+    gpio_init(GPIOA, GPIO_MODE_IN_FLOATING, GPIO_OSPEED_50MHZ, GPIO_PIN_10); // RX
+
+    /* USART 参数 */
+    usart_deinit(USART0);
+    usart_baudrate_set(USART0, 115200U);
+    usart_word_length_set(USART0, USART_WL_8BIT);
+    usart_stop_bit_set(USART0, USART_STB_1BIT);
+    usart_parity_config(USART0, USART_PM_NONE);
+    usart_hardware_flow_rts_config(USART0, USART_RTS_DISABLE);
+    usart_hardware_flow_cts_config(USART0, USART_CTS_DISABLE);
+    usart_receive_config(USART0, USART_RECEIVE_ENABLE);
+    usart_transmit_config(USART0, USART_TRANSMIT_ENABLE);
+    usart_enable(USART0);
+
+    /* ---------------- TX DMA ---------------- */
+    dma_parameter_struct dma_tx;
+    dma_deinit(DMA0, DMA_CH3);
+    dma_tx.periph_addr  = (uint32_t)&USART_DATA(USART0);
+    dma_tx.periph_width = DMA_PERIPHERAL_WIDTH_8BIT;
+    dma_tx.periph_inc   = DMA_PERIPH_INCREASE_DISABLE;
+    dma_tx.memory_addr  = (uint32_t)tx_ring.buf;
+    dma_tx.memory_width = DMA_MEMORY_WIDTH_8BIT;
+    dma_tx.memory_inc   = DMA_MEMORY_INCREASE_ENABLE;
+    dma_tx.direction    = DMA_MEMORY_TO_PERIPHERAL;
+    dma_tx.number       = 0;
+    dma_tx.priority     = DMA_PRIORITY_MEDIUM;
+    dma_init(DMA0, DMA_CH3, &dma_tx);
+    dma_interrupt_enable(DMA0, DMA_CH3, DMA_INT_FTF);
+    nvic_irq_enable(DMA0_Channel3_IRQn, 2, 0);
+
+    /* ---------------- RX DMA ---------------- */
+    dma_parameter_struct dma_rx;
+    dma_deinit(DMA0, DMA_CH4);
+    dma_rx.periph_addr  = (uint32_t)&USART_DATA(USART0);
+    dma_rx.periph_width = DMA_PERIPHERAL_WIDTH_8BIT;
+    dma_rx.periph_inc   = DMA_PERIPH_INCREASE_DISABLE;
+    dma_rx.memory_addr  = (uint32_t)rx_dma_buf;
+    dma_rx.memory_width = DMA_MEMORY_WIDTH_8BIT;
+    dma_rx.memory_inc   = DMA_MEMORY_INCREASE_ENABLE;
+    dma_rx.direction    = DMA_PERIPHERAL_TO_MEMORY;
+    dma_rx.number       = UART_RX_BUF_SIZE;
+    dma_rx.priority     = DMA_PRIORITY_HIGH;
+    dma_init(DMA0, DMA_CH4, &dma_rx);
+    dma_channel_enable(DMA0, DMA_CH4);
+
+    /* USART IDLE 中断 */
+    usart_interrupt_enable(USART0, USART_INT_IDLE);
+    nvic_irq_enable(USART0_IRQn, 1, 0);
+}
+
+
+
 int main(void)
 {
-    /* systick configuration*/
     systick_config();
+    uart_dma_init();
 
-    /* configure the led GPIO */
-    test_status_led_init();
+    uprintf("System start!\r\n");
 
-    /* USART parameter configuration */
-    gd_eval_com_init(EVAL_COM0);
-
-    /* configure SPI0 GPIO and parameter */
-    spi_flash_init();
-
-    /* GD32E503Z-EVAL-V1.0 Start up */
-    printf("\n\r###############################################################################\n\r");
-    printf("\n\rGD32E503V-EVAL-V1.0 System is Starting up...\n\r");
-    printf("\n\rGD32E503V-EVAL-V1.0 Flash:%dK\n\r",*(__IO uint16_t*)(0x1FFFF7E0));
-  
-    /* get chip serial number */
-    get_chip_serial_num();
-  
-    /* printf CPU unique device id */
-    printf("\n\rGD32E503V-EVAL-V1.0 The CPU Unique Device ID:[%X-%X-%X]\n\r",int_device_serial[2],int_device_serial[1],int_device_serial[0]);                       
-
-    printf("\n\rGD32E503V-EVAL-V1.0 SPI Flash:GD25Q16 configured...\n\r");
-
-    /* get flash id */
-    flash_id = spi_flash_read_id();
-    printf("\n\rThe Flash_ID:0x%X\n\r",flash_id);
-
-    /* flash id is correct */
-    if(SFLASH_ID == flash_id){
-        printf("\n\r\n\rWrite to tx_buffer:\n\r\n\r");
-
-        /* printf tx_buffer value */
-        for(i = 0; i < BUFFER_SIZE; i ++){
-            tx_buffer[i] = i;
-            printf("0x%02X ",tx_buffer[i]);
-
-            if(15 == i%16)
-                printf("\n\r");
+    while(1)
+    {
+        if(rx_frame_done)
+        {
+            // 回显
+            uprintf("Recv %d bytes: ", rx_len);
+            for(uint16_t i=0;i<rx_len;i++) uprintf("%02X ", rx_user_buf[i]);
+            uprintf("\r\n");
+            rx_frame_done = 0;
         }
-
-        printf("\n\r\n\rRead from rx_buffer:\n\r\n\r");
-
-        /* erases the specified flash sector */
-        spi_flash_sector_erase(FLASH_WRITE_ADDRESS);
-        /* write tx_buffer data to the flash */ 
-        spi_flash_buffer_write(tx_buffer,FLASH_WRITE_ADDRESS,TX_BUFFER_SIZE);
-
-        delay_1ms(10);
-
-        /* read a block of data from the flash to rx_buffer */
-        spi_flash_buffer_read(rx_buffer,FLASH_READ_ADDRESS,RX_BUFFER_SIZE);
-        /* printf rx_buffer value */
-        for(i = 0; i <= 255; i ++){
-            printf("0x%02X ", rx_buffer[i]);
-            if(15 == i%16)
-                printf("\n\r");
-        }
-
-        if(ERROR == memory_compare(tx_buffer,rx_buffer,256)){
-            printf("Err:Data Read and Write aren't Matching.\n\r");
-            is_successful = 1;
-        }
-
-        /* spi flash test passed */
-        if(0 == is_successful){
-            printf("\n\rSPI-GD25Q16 Test Passed!\n\r");
-        }
-    }else{
-        /* spi flash read id fail */
-        printf("\n\rSPI Flash: Read ID Fail!\n\r");
-    }
-
-    while(1){
-        /* turn off all leds */
-        gd_eval_led_off(LED1);
-        gd_eval_led_off(LED2);
-        gd_eval_led_off(LED3);
-        gd_eval_led_off(LED4);
-
-        /* turn on a led */
-        turn_on_led(count % 4);
-        count ++;
-        if(4 <= count)
-           count = 0;
-
-        delay_1ms(500);
     }
 }
 
-/*!
-    \brief      get chip serial number
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-void get_chip_serial_num(void)
-{
-    int_device_serial[0] = *(__IO uint32_t*)(0x1FFFF7E0);
-    int_device_serial[1] = *(__IO uint32_t*)(0x1FFFF7EC);
-    int_device_serial[2] = *(__IO uint32_t*)(0x1FFFF7F0);
-}
 
-/*!
-    \brief      test status led initialize
-    \param[in]  none
-    \param[out] none
-    \retval     none
-*/
-void test_status_led_init(void)
-{
-    /* initialize the leds */
-    gd_eval_led_init(LED1);
-    gd_eval_led_init(LED2);
-    gd_eval_led_init(LED3);
-    gd_eval_led_init(LED4);
+//int main(void)
+//{
+//    //SystemInit();
+////		systick_config();
+////    UART0_Init_Test();
+////		DMA0_Init_Test();
+//	
+//		while(RESET == dma_flag_get(DMA0, DMA_CH3, DMA_INTF_FTFIF)){
+//			
+//    }
 
-    /* turn off all leds */
-    gd_eval_led_off(LED1);
-    gd_eval_led_off(LED2);
-    gd_eval_led_off(LED3);
-    gd_eval_led_off(LED4);
-}
 
-/*!
-    \brief      turn on led
-    \param[in]  led_num: led number
-    \param[out] none
-    \retval     none
-*/
-static void turn_on_led(uint8_t led_num)
+//    while(1){
+//        //printf("hello world\n");
+//        //delay_1ms(1000);
+//    }
+
+//}
+
+/* DMA 发送完成中断：更新 tail 指针，如果还有数据继续搬 */
+void DMA0_Channel3_IRQHandler(void)
 {
-    switch(led_num){
-    case 0:
-        /* turn on LED1 */
-        gd_eval_led_on(LED1);
-        break;
-    case 1:
-        /* turn on LED2 */
-        gd_eval_led_on(LED2);
-        break;
-    case 2:
-        /* turn on LED3 */
-        gd_eval_led_on(LED3);
-        break;
-    case 3:
-        /* turn on LED4 */
-        gd_eval_led_on(LED4);
-        break;
-    default:
-        /* turn on all leds */
-        gd_eval_led_on(LED1);
-        gd_eval_led_on(LED2);
-        gd_eval_led_on(LED3);
-        gd_eval_led_on(LED4); 
-        break;
+    if(dma_interrupt_flag_get(DMA0, DMA_CH3, DMA_INT_FLAG_FTF))
+    {
+        dma_interrupt_flag_clear(DMA0, DMA_CH3, DMA_INT_FLAG_FTF);
+
+        /* 更新读指针即可，不再次启动 DMA */
+        tx_ring.tail += dma_transfer_number_get(DMA0, DMA_CH3);
     }
 }
 
-/*!
-    \brief      memory compare function
-    \param[in]  src: source data pointer
-    \param[in]  dst: destination data pointer
-    \param[in]  length: the compare data length
-    \param[out] none
-    \retval     ErrStatus: ERROR or SUCCESS
-*/
-ErrStatus memory_compare(uint8_t* src, uint8_t* dst, uint16_t length) 
+/* USART 总线空闲中断：一帧接收完成 */
+void USART0_IRQHandler(void)
 {
-    while(length --){
-        if(*src++ != *dst++)
-            return ERROR;
+    if(usart_interrupt_flag_get(USART0, USART_INT_FLAG_IDLE))
+    {
+        usart_interrupt_flag_clear(USART0, USART_INT_FLAG_IDLE); // GD32 清标志需读 SR+DR
+        usart_data_receive(USART0);
+
+        dma_channel_disable(DMA0, DMA_CH4);
+        uint16_t remain = dma_transfer_number_get(DMA0, DMA_CH4);
+        rx_len = UART_RX_BUF_SIZE - remain;
+
+        /* 把数据搬到用户缓冲区并置位标志 */
+        memcpy(rx_user_buf, rx_dma_buf, rx_len);
+        rx_frame_done = 1;
+
+        /* 重新启动 RX DMA */
+        dma_transfer_number_config(DMA0, DMA_CH4, UART_RX_BUF_SIZE);
+        dma_channel_enable(DMA0, DMA_CH4);
     }
-    return SUCCESS;
 }
+
 
 /* retarget the C library printf function to the USART */
-int fputc(int ch, FILE *f)
-{
-    usart_data_transmit(EVAL_COM0,(uint8_t)ch);
-    while (RESET == usart_flag_get(EVAL_COM0, USART_FLAG_TC));
-    return ch;
-}
+//int fputc(int ch, FILE *f)
+//{
+//    usart_data_transmit(EVAL_COM0,(uint8_t)ch);
+//    while (RESET == usart_flag_get(EVAL_COM0, USART_FLAG_TC));
+//    return ch;
+//}
 
